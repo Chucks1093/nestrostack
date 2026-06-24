@@ -8,15 +8,15 @@
   /* Brand colours */
   --color-surface: #f3f6fc;
   --color-surface2: #eaf1fb;
-  --color-blue: #1a56db;
-  --color-blue-bright: #2d6fff;
-  --color-blue-glow: rgba(26, 86, 219, 0.08);
-  --color-blue-line: rgba(26, 86, 219, 0.16);
+  --color-blue: #1550ee;
+  --color-blue-bright: #1a56ff;
+  --color-blue-glow: rgba(26, 86, 255, 0.08);
+  --color-blue-line: rgba(26, 86, 255, 0.16);
   --color-ink: #0b1730;
   --color-ink-muted: rgba(11, 23, 48, 0.62);
   --color-ink-dim: rgba(11, 23, 48, 0.38);
   --color-line: rgba(11, 23, 48, 0.09);
-  --color-line-blue: rgba(26, 86, 219, 0.22);
+  --color-line-blue: rgba(26, 86, 255, 0.22);
 
   /* Custom animations */
   --animate-pulse-dot: pulse-dot 2s ease infinite;
@@ -64,8 +64,8 @@ body {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(26, 86, 219, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26, 86, 219, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(26, 86, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 86, 255, 0.05) 1px, transparent 1px);
   background-size: 65px 65px;
   mask-image: radial-gradient(ellipse 75% 75% at 65% 40%, black 0%, transparent 85%);
 }
@@ -74,8 +74,8 @@ body {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(26, 86, 219, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26, 86, 219, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(26, 86, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 86, 255, 0.05) 1px, transparent 1px);
   background-size: 65px 65px;
   mask-image: radial-gradient(ellipse 60% 70% at 50% 50%, black 0%, transparent 80%);
 }
@@ -109,6 +109,8 @@ body {
     flex-direction: column;
     padding: 6rem 2rem 2rem;
     gap: 1.5rem;
+    background-color: #ffffff !important;
+    box-shadow: -6px 0 32px rgba(0, 0, 0, 0.12);
     transform: translateX(100%);
     transition: transform 0.35s ease;
     z-index: 490;

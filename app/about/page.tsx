@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Reveal from '@/components/Reveal'
 import Footer from '@/components/Footer'
 import { BOOKING_URL } from '@/lib/data'
@@ -14,38 +15,36 @@ export default function AboutPage() {
     <>
       {/* ── HERO ── */}
       <div className="min-h-screen relative overflow-hidden">
-        <div className="hero-grid" />
-        <div className="relative z-[2] grid grid-cols-2 min-h-screen max-lg:grid-cols-1 max-lg:min-h-[auto]">
-          <div className="flex flex-col justify-center pr-16 pl-10 pt-[10rem] pb-20 max-lg:px-10 max-lg:pt-12 max-lg:pb-16">
+        <div className="grid grid-cols-2 min-h-screen max-lg:grid-cols-1 max-lg:min-h-[auto]">
+          <div className="flex flex-col justify-center pr-16 pl-10 pt-[10rem] pb-20 max-lg:px-10 max-lg:pt-32 max-lg:pb-12 max-sm:px-6 max-sm:pb-10">
             <p className="flex items-center gap-[0.8rem] text-blue text-[0.75rem] font-medium tracking-[0.18em] uppercase mb-6 opacity-0 [animation:fadeUp_0.8s_ease_forwards_0.2s] before:content-[''] before:block before:w-7 before:h-px before:bg-blue">
               Our Story
             </p>
-            <h1 className="font-display text-[clamp(2.4rem,4.5vw,3.8rem)] font-semibold leading-[1.1] mb-6 opacity-0 [animation:fadeUp_0.9s_ease_forwards_0.4s]">
+            <h1 className="font-display text-[clamp(2rem,4.5vw,3.8rem)] font-semibold leading-[1.1] mb-5 opacity-0 [animation:fadeUp_0.9s_ease_forwards_0.4s]">
               We exist because <em className="text-blue">good businesses</em> should not fail for lack of systems.
             </h1>
-            <p className="text-[1.05rem] text-ink-muted leading-[1.88] max-w-[480px] opacity-0 [animation:fadeUp_0.9s_ease_forwards_0.6s]">
+            <p className="text-[1rem] text-ink-muted leading-[1.88] max-w-[480px] opacity-0 [animation:fadeUp_0.9s_ease_forwards_0.6s] max-sm:text-[0.93rem]">
               Nestro Stack was built for the business owners who are talented, driven, and doing everything right — but still feel like they are barely keeping up.
             </p>
           </div>
-          <div className="bg-blue-bright dotted-panel flex items-center justify-center rounded-br-[3rem] max-lg:min-h-[260px] max-lg:rounded-none">
-            <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.95">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-            </svg>
+          <div className="relative overflow-hidden h-full bg-blue-bright rounded-br-[3rem] max-lg:min-h-[240px] max-lg:rounded-none">
+            <Image src="/images/hero.jpg" alt="Nestro Stack about" fill className="object-cover brightness-75" />
+            <div className="absolute inset-0 z-[5] pointer-events-none" style={{ backgroundImage: "url('/images/noise.png')", backgroundRepeat: "repeat" }} />
+            <div className="absolute inset-0 z-10 flex items-center justify-center">
+              <img src="/icons/workflow.svg" alt="" width={120} height={120} className="opacity-90" />
+            </div>
           </div>
         </div>
       </div>
 
       {/* ── WHY WE EXIST ── */}
-      <section className="py-28 px-10 text-center border-b border-line max-md:py-20 max-md:px-6">
+      <section className="py-24 px-10 text-center border-b border-line max-md:py-16 max-md:px-6 max-sm:px-4">
         <div className="max-w-[680px] mx-auto">
           <Reveal>
             <p className="flex justify-center items-center gap-[0.8rem] text-blue text-[0.72rem] font-medium tracking-[0.2em] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-px before:bg-blue after:content-[''] after:block after:w-6 after:h-px after:bg-blue">
               Why We Exist
             </p>
-            <h2 className="font-display text-[clamp(2.2rem,4.5vw,3.8rem)] font-semibold leading-[1.1] mb-6">
+            <h2 className="font-display text-[clamp(1.75rem,4.5vw,3.8rem)] font-semibold leading-[1.1] mb-6">
               We have seen it<br /><em className="text-blue">too many times.</em>
             </h2>
             <p className="text-[1rem] text-ink-muted leading-[1.85] mb-8">
@@ -61,13 +60,13 @@ export default function AboutPage() {
       </section>
 
       {/* ── VALUES ── */}
-      <section className="bg-surface border-t border-b border-line py-28 px-10 max-md:py-20 max-md:px-6">
+      <section className="bg-surface border-t border-b border-line py-24 px-10 max-md:py-16 max-md:px-6 max-sm:px-4">
         <div className="max-w-[1120px] mx-auto">
           <Reveal>
             <p className="flex items-center gap-[0.8rem] text-blue text-[0.72rem] font-medium tracking-[0.2em] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-px before:bg-blue before:shrink-0">
               What We Stand For
             </p>
-            <h2 className="font-display text-[clamp(2.2rem,4.5vw,3.8rem)] font-semibold leading-[1.1]">
+            <h2 className="font-display text-[clamp(1.75rem,4.5vw,3.8rem)] font-semibold leading-[1.1]">
               The values that guide <em className="text-blue">everything we build.</em>
             </h2>
           </Reveal>
@@ -83,13 +82,13 @@ export default function AboutPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-surface border-t border-line text-center py-28 px-10 max-md:py-20 max-md:px-6">
+      <section className="bg-surface border-t border-line text-center py-24 px-10 max-md:py-16 max-md:px-6 max-sm:px-4">
         <div className="max-w-[1120px] mx-auto">
           <p className="flex justify-center items-center gap-[0.8rem] text-blue text-[0.72rem] font-medium tracking-[0.2em] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-px before:bg-blue after:content-[''] after:block after:w-6 after:h-px after:bg-blue">
             Let us Meet
           </p>
           <Reveal>
-            <h2 className="font-display text-[clamp(2.2rem,4.5vw,3.8rem)] font-semibold leading-[1.1] mb-5">
+            <h2 className="font-display text-[clamp(1.75rem,4.5vw,3.8rem)] font-semibold leading-[1.1] mb-5">
               Ready to meet the <em className="text-blue">team behind your systems?</em>
             </h2>
           </Reveal>

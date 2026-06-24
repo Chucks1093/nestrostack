@@ -27,13 +27,13 @@ export default function ContactPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <div className="bg-white pt-36 pb-20 px-10 border-b border-line relative overflow-hidden max-md:pt-28 max-md:pb-12 max-md:px-6">
+      <div className="bg-white pt-36 pb-20 px-10 border-b border-line relative overflow-hidden max-md:pt-24 max-md:pb-12 max-md:px-6 max-sm:px-4">
         <div className="contact-grid" />
         <div className="max-w-[1120px] mx-auto relative z-[2]">
           <p className="flex justify-center items-center gap-[0.8rem] text-blue text-[0.72rem] font-medium tracking-[0.2em] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-px before:bg-blue after:content-[''] after:block after:w-6 after:h-px after:bg-blue">
             Let us Talk
           </p>
-          <h1 className="font-display text-[clamp(2.8rem,6vw,5rem)] font-semibold leading-[1.1] text-ink max-w-[680px] mx-auto mb-5 text-center">
+          <h1 className="font-display text-[clamp(2rem,6vw,5rem)] font-semibold leading-[1.1] text-ink max-w-[680px] mx-auto mb-5 text-center">
             Your clarity call starts <em className="text-blue">right here.</em>
           </h1>
           <p className="text-[1rem] text-ink-muted max-w-[500px] mx-auto leading-[1.88] text-center">
@@ -69,7 +69,7 @@ export default function ContactPage() {
           </Reveal>
 
           {/* Right: form */}
-          <Reveal delay="d1" className="bg-white rounded-2xl p-12 shadow-[0_8px_40px_rgba(0,0,0,0.14)] max-md:p-8">
+          <Reveal delay="d1" className="bg-white rounded-2xl p-12 shadow-[0_8px_40px_rgba(0,0,0,0.14)] max-md:p-8 max-sm:p-6">
             <div className="mb-8">
               <h3 className="font-display text-[1.8rem] font-semibold mb-[0.4rem]">Book Your Free Clarity Call</h3>
               <p className="text-[0.88rem] text-ink-muted">Fill this out and we will confirm your time within 24 hours.</p>
