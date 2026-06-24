@@ -1,0 +1,3093 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Nestro Stack — We Build the Business Behind Your Business</title>
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com" />
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap"
+			rel="stylesheet" />
+		<style>
+			:root {
+				--bg: #ffffff;
+				--surface: #f3f6fc;
+				--surface2: #eaf1fb;
+				--blue: #1a56db;
+				--blue-bright: #2d6fff;
+				--blue-soft: #1a56db;
+				--blue-glow: rgba(26, 86, 219, 0.08);
+				--blue-line: rgba(26, 86, 219, 0.16);
+				--white: #0b1730;
+				--white-muted: rgba(11, 23, 48, 0.62);
+				--white-dim: rgba(11, 23, 48, 0.38);
+				--border: rgba(11, 23, 48, 0.09);
+				--border-blue: rgba(26, 86, 219, 0.22);
+				--font-display: "Cormorant Garamond", Georgia, serif;
+				--font-body: "Outfit", sans-serif;
+			}
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+			html {
+				scroll-behavior: smooth;
+			}
+			body {
+				background: var(--bg);
+				color: var(--white);
+				font-family: var(--font-body);
+				font-weight: 300;
+				line-height: 1.7;
+				overflow-x: hidden;
+			}
+
+			/* NAV */
+			nav {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				z-index: 500;
+				padding: 1.25rem 2.5rem;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				backdrop-filter: blur(24px) saturate(1.4);
+				background: rgba(255, 255, 255, 0.85);
+				border-bottom: 1px solid var(--border);
+			}
+			.nav-logo {
+				font-family: var(--font-display);
+				font-size: 1.35rem;
+				font-weight: 600;
+				color: var(--white);
+				text-decoration: none;
+				letter-spacing: -0.01em;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				gap: 0.35rem;
+			}
+			.nav-logo-dot {
+				width: 7px;
+				height: 7px;
+				background: var(--blue-bright);
+				border-radius: 50%;
+				display: inline-block;
+				animation: pulse 2s ease infinite;
+			}
+			@keyframes pulse {
+				0%,
+				100% {
+					opacity: 1;
+					transform: scale(1);
+				}
+				50% {
+					opacity: 0.6;
+					transform: scale(0.85);
+				}
+			}
+			.nav-logo span {
+				color: var(--blue-soft);
+			}
+			.nav-links {
+				display: flex;
+				gap: 2.5rem;
+				list-style: none;
+				align-items: center;
+			}
+			.nav-links a {
+				color: var(--white-muted);
+				text-decoration: none;
+				font-size: 0.83rem;
+				font-weight: 400;
+				letter-spacing: 0.07em;
+				text-transform: uppercase;
+				transition: color 0.2s;
+				cursor: pointer;
+				position: relative;
+			}
+			.nav-links a::after {
+				content: "";
+				position: absolute;
+				bottom: -4px;
+				left: 0;
+				right: 0;
+				height: 1px;
+				background: var(--blue-soft);
+				transform: scaleX(0);
+				transition: transform 0.25s ease;
+			}
+			.nav-links a:hover {
+				color: var(--white);
+			}
+			.nav-links a:hover::after,
+			.nav-links a.active::after {
+				transform: scaleX(1);
+			}
+			.nav-links a.active {
+				color: var(--white);
+			}
+			.nav-cta {
+				background: var(--blue-bright) !important;
+				color: #ffffff !important;
+				padding: 0.5rem 1.4rem;
+				border-radius: 5px;
+				font-weight: 500 !important;
+				transition: all 0.2s !important;
+			}
+			.nav-cta::after {
+				display: none !important;
+			}
+			.nav-cta:hover {
+				background: var(--blue-soft) !important;
+				transform: translateY(-1px) !important;
+			}
+			.hamburger {
+				display: none;
+				flex-direction: column;
+				gap: 5px;
+				cursor: pointer;
+				background: none;
+				border: none;
+				padding: 4px;
+			}
+			.hamburger span {
+				display: block;
+				width: 24px;
+				height: 2px;
+				background: var(--white);
+				border-radius: 2px;
+			}
+
+			/* PAGE SYSTEM */
+			.page {
+				display: none;
+				position: relative;
+				z-index: 1;
+			}
+			.page.active {
+				display: block;
+			}
+
+			/* SHARED */
+			.section-label {
+				font-size: 0.72rem;
+				font-weight: 500;
+				letter-spacing: 0.2em;
+				text-transform: uppercase;
+				color: var(--blue-soft);
+				margin-bottom: 1rem;
+				display: flex;
+				align-items: center;
+				gap: 0.8rem;
+			}
+			.section-label::before {
+				content: "";
+				display: block;
+				width: 24px;
+				height: 1px;
+				background: var(--blue-soft);
+				flex-shrink: 0;
+			}
+			.section-label.center {
+				justify-content: center;
+			}
+			.section-label.center::before,
+			.section-label.center::after {
+				content: "";
+				display: block;
+				width: 24px;
+				height: 1px;
+				background: var(--blue-soft);
+			}
+			.section-headline {
+				font-family: var(--font-display);
+				font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+				font-weight: 600;
+				line-height: 1.1;
+				margin-bottom: 1.2rem;
+			}
+			.section-headline em {
+				font-style: italic;
+				color: var(--blue-soft);
+			}
+			.section-sub {
+				font-size: 1rem;
+				color: var(--white-muted);
+				max-width: 560px;
+				line-height: 1.88;
+			}
+			.container {
+				max-width: 1120px;
+				margin: 0 auto;
+				width: 100%;
+				padding: 0 1rem;
+			}
+			section {
+				padding: 7rem 2.5rem;
+			}
+			.btn-primary {
+				background: var(--blue-bright);
+				color: #ffffff;
+				padding: 0.9rem 2rem;
+				border-radius: 5px;
+				text-decoration: none;
+				font-weight: 500;
+				font-size: 0.95rem;
+				transition:
+					background 0.25s,
+					transform 0.25s;
+				border: none;
+				cursor: pointer;
+				display: inline-flex;
+				align-items: center;
+				gap: 0.55rem;
+				letter-spacing: 0.01em;
+			}
+			.btn-primary:hover {
+				background: var(--blue-soft);
+				transform: translateY(-2px);
+			}
+			.btn-ghost {
+				background: rgba(26, 86, 219, 0.04);
+				color: var(--white);
+				padding: 0.9rem 2rem;
+				border-radius: 5px;
+				text-decoration: none;
+				font-weight: 400;
+				font-size: 0.95rem;
+				border: 1px solid var(--border);
+				transition: all 0.25s;
+				cursor: pointer;
+				display: inline-flex;
+				align-items: center;
+				gap: 0.55rem;
+			}
+			.btn-ghost:hover {
+				border-color: var(--blue-soft);
+				color: var(--blue-soft);
+				background: var(--blue-glow);
+			}
+			.btn-icon {
+				width: 18px;
+				height: 18px;
+				flex-shrink: 0;
+			}
+			@keyframes fadeUp {
+				from {
+					opacity: 0;
+					transform: translateY(22px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			/* HERO */
+			.hero-wrap {
+				min-height: 100vh;
+				position: relative;
+				overflow: hidden;
+			}
+			.hero-grid-lines {
+				position: absolute;
+				inset: 0;
+				background-image:
+					linear-gradient(rgba(26, 86, 219, 0.05) 1px, transparent 1px),
+					linear-gradient(
+						90deg,
+						rgba(26, 86, 219, 0.05) 1px,
+						transparent 1px
+					);
+				background-size: 65px 65px;
+				mask-image: radial-gradient(
+					ellipse 75% 75% at 65% 40%,
+					black 0%,
+					transparent 85%
+				);
+			}
+			.hero-split-grid {
+				position: relative;
+				z-index: 2;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				min-height: 100vh;
+			}
+			.hero-visual-panel {
+				background-color: var(--blue-bright);
+				background-image: radial-gradient(
+					rgba(255, 255, 255, 0.14) 1.5px,
+					transparent 1.5px
+				);
+				background-size: 28px 28px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 0 0 0 3rem;
+			}
+			.hero-inner {
+				padding: 10rem 4rem 5rem 2.5rem;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+			.hero-eyebrow {
+				font-size: 0.75rem;
+				font-weight: 500;
+				letter-spacing: 0.18em;
+				text-transform: uppercase;
+				color: var(--blue-soft);
+				margin-bottom: 1.5rem;
+				opacity: 0;
+				animation: fadeUp 0.8s ease forwards 0.2s;
+				display: flex;
+				align-items: center;
+				gap: 0.8rem;
+			}
+			.hero-eyebrow::before {
+				content: "";
+				display: block;
+				width: 28px;
+				height: 1px;
+				background: var(--blue-soft);
+			}
+			.hero-headline {
+				font-family: var(--font-display);
+				font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+				font-weight: 600;
+				line-height: 1.1;
+				margin-bottom: 1.5rem;
+				opacity: 0;
+				animation: fadeUp 0.9s ease forwards 0.4s;
+			}
+			.hero-headline em {
+				font-style: italic;
+				color: var(--blue-soft);
+			}
+			.hero-sub {
+				font-size: 1.05rem;
+				color: var(--white-muted);
+				line-height: 1.88;
+				margin-bottom: 2.2rem;
+				opacity: 0;
+				animation: fadeUp 0.9s ease forwards 0.6s;
+			}
+			.hero-actions {
+				display: flex;
+				gap: 1rem;
+				flex-wrap: wrap;
+				opacity: 0;
+				animation: fadeUp 0.9s ease forwards 0.8s;
+			}
+
+			/* PROBLEM */
+			.problem-section {
+				background: var(--blue-bright);
+				padding: 7rem 2.5rem;
+				text-align: center;
+				margin-top: 2.5rem;
+				border-radius: 2rem;
+				margin-left: 2rem;
+				margin-right: 2rem;
+			}
+			.problem-container {
+				max-width: 760px;
+			}
+			.problem-section .section-label {
+				justify-content: center;
+				color: rgba(255, 255, 255, 0.85);
+			}
+			.problem-section .section-label::before,
+			.problem-section .section-label::after {
+				background: rgba(255, 255, 255, 0.5);
+			}
+			.problem-headline {
+				font-family: var(--font-display);
+				font-size: clamp(2rem, 3.5vw, 2.8rem);
+				font-weight: 600;
+				line-height: 1.2;
+				margin-bottom: 1.5rem;
+				color: #ffffff;
+			}
+			.problem-headline em {
+				font-style: italic;
+				color: #cfe0ff;
+			}
+			/* highlight for "always" */
+			.problem-headline mark {
+				background: rgba(255, 255, 255, 0.28);
+				color: #ffffff;
+				border-radius: 4px;
+				padding: 0 6px;
+				font-style: normal;
+			}
+			.problem-text {
+				font-size: 0.98rem;
+				color: rgba(255, 255, 255, 0.85);
+				line-height: 1.85;
+				margin-bottom: 1.2rem;
+			}
+			.problem-text strong {
+				color: #ffffff;
+				font-weight: 600;
+			}
+			.problem-btn {
+				background: #ffffff;
+				color: var(--blue-bright);
+				padding: 0.9rem 2rem;
+				border-radius: 5px;
+				text-decoration: none;
+				font-weight: 500;
+				font-size: 0.95rem;
+				transition: background 0.25s;
+				border: none;
+				cursor: pointer;
+				display: inline-flex;
+				align-items: center;
+				gap: 0.55rem;
+				letter-spacing: 0.01em;
+				margin-top: 1rem;
+			}
+			.problem-btn:hover {
+				background: #eaf1fb;
+			}
+
+			/* HOW IT WORKS */
+			.how-split {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				border-top: 1px solid var(--border);
+				border-bottom: 1px solid var(--border);
+			}
+			.how-split-ph {
+				min-height: 480px;
+			}
+			.how-split-content {
+				background: var(--surface);
+				padding: 5rem 4.5rem;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+			.steps-list {
+				margin-top: 3rem;
+				display: flex;
+				flex-direction: column;
+			}
+			.step-item {
+				padding: 2rem 0;
+				border-bottom: 1px solid var(--border);
+				display: flex;
+				gap: 1.5rem;
+				align-items: flex-start;
+			}
+			.step-item:last-child {
+				border-bottom: none;
+			}
+			.step-num {
+				font-family: var(--font-display);
+				font-size: 2.8rem;
+				font-weight: 700;
+				color: var(--blue-line);
+				line-height: 1;
+				flex-shrink: 0;
+				width: 60px;
+			}
+			.step-body h3 {
+				font-family: var(--font-display);
+				font-size: 1.35rem;
+				font-weight: 600;
+				margin-bottom: 0.5rem;
+			}
+			.step-body p {
+				font-size: 0.9rem;
+				color: var(--white-muted);
+				line-height: 1.78;
+			}
+
+			/* ── SERVICE CARDS (Nora-style) ── */
+			.services-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 1.2rem;
+				margin-top: 4rem;
+			}
+			.svc-nora {
+				background: #fff;
+				border: 1.5px solid var(--border);
+				border-radius: 16px;
+				padding: 1.6rem 1.8rem;
+				display: flex;
+				flex-direction: column;
+				gap: 0;
+				transition:
+					border-color 0.25s,
+					box-shadow 0.25s;
+			}
+			.svc-nora:hover {
+				border-color: var(--border-blue);
+				box-shadow: 0 4px 24px rgba(26, 86, 219, 0.08);
+			}
+			/* top row */
+			.svc-nora-top {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				margin-bottom: 1rem;
+			}
+			.svc-nora-icon-wrap {
+				width: 44px;
+				height: 44px;
+				background: var(--surface);
+				border-radius: 10px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.svc-nora-icon-wrap svg {
+				width: 22px;
+				height: 22px;
+				color: var(--white-muted);
+			}
+			.svc-nora-badge {
+				font-size: 0.72rem;
+				font-weight: 500;
+				color: var(--blue-soft);
+				background: rgba(26, 86, 219, 0.08);
+				border: 1px solid var(--border-blue);
+				border-radius: 20px;
+				padding: 0.2rem 0.7rem;
+				letter-spacing: 0.04em;
+			}
+			/* title + desc */
+			.svc-nora h3 {
+				font-family: var(--font-display);
+				font-size: 1.3rem;
+				font-weight: 600;
+				margin-bottom: 0.4rem;
+			}
+			.svc-nora .svc-desc {
+				font-size: 0.88rem;
+				color: var(--white-muted);
+				line-height: 1.72;
+				margin-bottom: 1.1rem;
+			}
+			/* dashed divider */
+			.svc-nora-divider {
+				border: none;
+				border-top: 1.5px dashed var(--border);
+				margin: 0.2rem 0 1.1rem;
+			}
+			/* feature rows */
+			.svc-feat-list {
+				display: flex;
+				flex-direction: column;
+				gap: 0;
+			}
+			.svc-feat-row {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 0.6rem 0;
+				border-bottom: 1px solid var(--border);
+			}
+			.svc-feat-row:last-child {
+				border-bottom: none;
+			}
+			.svc-feat-left {
+				display: flex;
+				align-items: center;
+				gap: 0.65rem;
+			}
+			.svc-feat-check {
+				width: 22px;
+				height: 22px;
+				border-radius: 6px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-shrink: 0;
+			}
+			.svc-feat-check.on {
+				background: var(--blue-bright);
+			}
+			.svc-feat-check.off {
+				background: var(--surface2);
+				border: 1px solid var(--border);
+			}
+			.svc-feat-check.on svg {
+				width: 12px;
+				height: 12px;
+				color: #fff;
+			}
+			.svc-feat-check.off svg {
+				width: 12px;
+				height: 12px;
+				color: var(--white-dim);
+			}
+			.svc-feat-name {
+				font-size: 0.88rem;
+				font-weight: 400;
+			}
+			.svc-feat-name.off-text {
+				color: var(--white-muted);
+			}
+			.svc-feat-info {
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				border: 1.5px solid var(--border);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: var(--white-dim);
+				flex-shrink: 0;
+			}
+			.svc-feat-info svg {
+				width: 10px;
+				height: 10px;
+			}
+
+			/* HOME services preview (same card style) */
+			.service-card {
+				background: #fff;
+				border: 1.5px solid var(--border);
+				border-radius: 16px;
+				padding: 1.6rem 1.8rem;
+				display: flex;
+				flex-direction: column;
+				transition:
+					border-color 0.25s,
+					box-shadow 0.25s;
+			}
+			.service-card:hover {
+				border-color: var(--border-blue);
+				box-shadow: 0 4px 24px rgba(26, 86, 219, 0.08);
+			}
+			.service-icon-wrap {
+				width: 44px;
+				height: 44px;
+				background: var(--surface);
+				border-radius: 10px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-bottom: 1.2rem;
+			}
+			.service-icon-wrap svg {
+				width: 22px;
+				height: 22px;
+				color: var(--white-muted);
+			}
+			.service-card h3 {
+				font-family: var(--font-display);
+				font-size: 1.35rem;
+				font-weight: 600;
+				margin-bottom: 0.6rem;
+			}
+			.service-card p {
+				font-size: 0.91rem;
+				color: var(--white-muted);
+				line-height: 1.78;
+			}
+
+			/* TESTIMONIALS */
+			.testi-section {
+				background: var(--surface);
+				border-top: 1px solid var(--border);
+			}
+			.testi-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 1.5rem;
+				margin-top: 4rem;
+			}
+			.testi-card {
+				background: var(--bg);
+				border: 1.5px solid var(--border);
+				border-radius: 14px;
+				padding: 2.2rem 2rem;
+				display: flex;
+				flex-direction: column;
+				transition: border-color 0.25s;
+			}
+			.testi-card:hover {
+				border-color: var(--border-blue);
+			}
+			.testi-stars {
+				display: flex;
+				gap: 3px;
+				margin-bottom: 1rem;
+			}
+			.testi-stars svg {
+				width: 14px;
+				height: 14px;
+				fill: var(--blue-bright);
+				color: var(--blue-bright);
+			}
+			.testi-card blockquote {
+				font-size: 0.96rem;
+				line-height: 1.78;
+				color: var(--white-muted);
+				margin-bottom: 1.6rem;
+			}
+			.testi-author {
+				display: flex;
+				align-items: center;
+				gap: 0.9rem;
+				margin-top: auto;
+				padding-top: 1.2rem;
+				border-top: 1px solid var(--border);
+			}
+			.t-avatar {
+				width: 38px;
+				height: 38px;
+				border-radius: 50%;
+				background: var(--blue-glow);
+				border: 1px solid var(--border-blue);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: 600;
+				font-size: 0.8rem;
+				flex-shrink: 0;
+				color: var(--blue-soft);
+			}
+			.t-name {
+				font-weight: 500;
+				font-size: 0.88rem;
+			}
+			.t-role {
+				font-size: 0.76rem;
+				color: var(--white-muted);
+			}
+
+			/* CTA */
+			.cta-section {
+				text-align: center;
+				padding: 9rem 2.5rem;
+				position: relative;
+				overflow: hidden;
+			}
+			.cta-section .container {
+				position: relative;
+				z-index: 2;
+			}
+
+			/* TOOLS MARQUEE */
+			.tools-section {
+				background: var(--surface);
+				border-top: 1px solid var(--border);
+				border-bottom: 1px solid var(--border);
+				padding: 5rem 0;
+				overflow: hidden;
+			}
+			.tools-header {
+				max-width: 1120px;
+				margin: 0 auto;
+				padding: 0 2.5rem;
+				margin-bottom: 3rem;
+			}
+			.marquee-wrapper {
+				position: relative;
+				overflow: hidden;
+			}
+			.marquee-wrapper::before,
+			.marquee-wrapper::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				width: 120px;
+				z-index: 2;
+			}
+			.marquee-wrapper::before {
+				left: 0;
+				background: linear-gradient(to right, var(--surface), transparent);
+			}
+			.marquee-wrapper::after {
+				right: 0;
+				background: linear-gradient(to left, var(--surface), transparent);
+			}
+			.marquee-track {
+				display: flex;
+				gap: 1.2rem;
+				width: max-content;
+				animation: marquee 28s linear infinite;
+				padding: 0.5rem 0;
+			}
+			.marquee-track:hover {
+				animation-play-state: paused;
+			}
+			@keyframes marquee {
+				from {
+					transform: translateX(0);
+				}
+				to {
+					transform: translateX(-50%);
+				}
+			}
+			.tool-pill {
+				display: flex;
+				align-items: center;
+				gap: 0.7rem;
+				background: rgba(26, 86, 219, 0.04);
+				border: 1px solid var(--border);
+				border-radius: 50px;
+				padding: 0.6rem 1.3rem;
+				white-space: nowrap;
+				flex-shrink: 0;
+				transition: all 0.2s;
+			}
+			.tool-pill:hover {
+				border-color: var(--border-blue);
+				background: rgba(26, 86, 219, 0.08);
+				transform: translateY(-2px);
+			}
+			.tool-pill .t-icon {
+				width: 18px;
+				height: 18px;
+				color: var(--blue-soft);
+				flex-shrink: 0;
+			}
+			.tool-pill span {
+				font-size: 0.88rem;
+				color: var(--white-muted);
+			}
+			.tool-pill:hover span {
+				color: var(--white);
+			}
+
+			/* ── SERVICES PAGE ── */
+			.services-hero-split {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				min-height: 100vh;
+			}
+			.shs-inner {
+				padding: 10rem 4rem 5rem 2.5rem;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+			.shs-eyebrow {
+				font-size: 0.75rem;
+				font-weight: 500;
+				letter-spacing: 0.18em;
+				text-transform: uppercase;
+				color: var(--blue-soft);
+				margin-bottom: 1.5rem;
+				opacity: 0;
+				animation: fadeUp 0.8s ease forwards 0.2s;
+				display: flex;
+				align-items: center;
+				gap: 0.8rem;
+			}
+			.shs-eyebrow::before {
+				content: "";
+				display: block;
+				width: 28px;
+				height: 1px;
+				background: var(--blue-soft);
+			}
+			.shs-headline {
+				font-family: var(--font-display);
+				font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+				font-weight: 600;
+				line-height: 1.1;
+				margin-bottom: 1.5rem;
+				opacity: 0;
+				animation: fadeUp 0.9s ease forwards 0.4s;
+			}
+			.shs-headline em {
+				font-style: italic;
+				color: var(--blue-soft);
+			}
+			.shs-sub {
+				font-size: 1.05rem;
+				color: var(--white-muted);
+				line-height: 1.88;
+				margin-bottom: 2.2rem;
+				max-width: 500px;
+				opacity: 0;
+				animation: fadeUp 0.9s ease forwards 0.6s;
+			}
+			.shs-visual {
+				background-color: var(--blue-bright);
+				background-image: radial-gradient(
+					rgba(255, 255, 255, 0.14) 1.5px,
+					transparent 1.5px
+				);
+				background-size: 28px 28px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 0 0 3rem 0;
+			}
+			.svc-page-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1.2rem;
+				margin-top: 4rem;
+			}
+
+			/* ── ABOUT PAGE ── */
+			.about-hero-split {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				min-height: 100vh;
+			}
+			.ahs-inner {
+				padding: 10rem 4rem 5rem 2.5rem;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+			.ahs-eyebrow {
+				font-size: 0.75rem;
+				font-weight: 500;
+				letter-spacing: 0.18em;
+				text-transform: uppercase;
+				color: var(--blue-soft);
+				margin-bottom: 1.5rem;
+				opacity: 0;
+				animation: fadeUp 0.8s ease forwards 0.2s;
+				display: flex;
+				align-items: center;
+				gap: 0.8rem;
+			}
+			.ahs-eyebrow::before {
+				content: "";
+				display: block;
+				width: 28px;
+				height: 1px;
+				background: var(--blue-soft);
+			}
+			.ahs-headline {
+				font-family: var(--font-display);
+				font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+				font-weight: 600;
+				line-height: 1.1;
+				margin-bottom: 1.5rem;
+				opacity: 0;
+				animation: fadeUp 0.9s ease forwards 0.4s;
+			}
+			.ahs-headline em {
+				font-style: italic;
+				color: var(--blue-soft);
+			}
+			.ahs-sub {
+				font-size: 1.05rem;
+				color: var(--white-muted);
+				line-height: 1.88;
+				max-width: 480px;
+				opacity: 0;
+				animation: fadeUp 0.9s ease forwards 0.6s;
+			}
+			.ahs-visual {
+				background-color: var(--blue-bright);
+				background-image: radial-gradient(
+					rgba(255, 255, 255, 0.14) 1.5px,
+					transparent 1.5px
+				);
+				background-size: 28px 28px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 0 0 3rem 0;
+			}
+			/* about why section — centered */
+			.about-why {
+				padding: 7rem 2.5rem;
+				text-align: center;
+				border-bottom: 1px solid var(--border);
+			}
+			.about-why-list {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 0.55rem;
+				margin-top: 2rem;
+			}
+			.about-why-list li {
+				list-style: none;
+				font-size: 1rem;
+				color: var(--white-muted);
+				display: flex;
+				align-items: center;
+				gap: 0.55rem;
+			}
+			.about-why-list li::before {
+				content: "–";
+				color: var(--blue-soft);
+				font-weight: 500;
+				flex-shrink: 0;
+			}
+			.values-section {
+				background: var(--surface);
+				border-top: 1px solid var(--border);
+				border-bottom: 1px solid var(--border);
+			}
+			.values-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+				gap: 2rem;
+				margin-top: 3.5rem;
+			}
+			.value-card {
+				padding: 2rem 0;
+				border-top: 2px solid var(--border-blue);
+			}
+			.value-card h3 {
+				font-family: var(--font-display);
+				font-size: 1.35rem;
+				font-weight: 600;
+				margin-bottom: 0.8rem;
+			}
+			.value-card p {
+				font-size: 0.91rem;
+				color: var(--white-muted);
+				line-height: 1.78;
+			}
+			.about-cta {
+				background: var(--surface);
+				border-top: 1px solid var(--border);
+				text-align: center;
+				padding: 7rem 2.5rem;
+			}
+
+			/* ── CONTACT PAGE ── */
+			.contact-hero {
+				background: var(--bg);
+				padding: 9rem 2.5rem 5rem;
+				border-bottom: 1px solid var(--border);
+				position: relative;
+				overflow: hidden;
+			}
+			.contact-hero-grid {
+				position: absolute;
+				inset: 0;
+				background-image:
+					linear-gradient(rgba(26, 86, 219, 0.05) 1px, transparent 1px),
+					linear-gradient(
+						90deg,
+						rgba(26, 86, 219, 0.05) 1px,
+						transparent 1px
+					);
+				background-size: 65px 65px;
+				mask-image: radial-gradient(
+					ellipse 60% 70% at 50% 50%,
+					black 0%,
+					transparent 80%
+				);
+			}
+			.contact-hero .container {
+				position: relative;
+				z-index: 2;
+			}
+			.contact-hero h1 {
+				font-family: var(--font-display);
+				font-size: clamp(2.8rem, 6vw, 5rem);
+				font-weight: 600;
+				line-height: 1.1;
+				color: var(--white);
+				margin: 0.8rem auto 1.2rem;
+				max-width: 680px;
+				text-align: center;
+			}
+			.contact-hero h1 em {
+				font-style: italic;
+				color: var(--blue-soft);
+			}
+			.contact-hero p {
+				font-size: 1rem;
+				color: var(--white-muted);
+				max-width: 500px;
+				margin: 0 auto;
+				line-height: 1.88;
+				text-align: center;
+			}
+			.contact-hero .section-label {
+				justify-content: center;
+			}
+			.contact-hero .section-label::before,
+			.contact-hero .section-label::after {
+				background: var(--blue-soft);
+			}
+
+			/* main contact split */
+			.contact-main {
+				background: var(--surface);
+				padding: 5rem 2.5rem 7rem;
+				border-top: 1px solid var(--border);
+			}
+			.contact-split {
+				display: grid;
+				grid-template-columns: 1fr 1.5fr;
+				gap: 3rem;
+				max-width: 1120px;
+				margin: 0 auto;
+				align-items: start;
+			}
+			/* left info panel */
+			.contact-info-panel {
+				display: flex;
+				flex-direction: column;
+				gap: 1.5rem;
+				padding-top: 0.5rem;
+			}
+			.contact-info-panel h2 {
+				font-family: var(--font-display);
+				font-size: 2rem;
+				font-weight: 600;
+				line-height: 1.2;
+				color: var(--white);
+			}
+			.contact-info-panel h2 em {
+				font-style: italic;
+				color: var(--blue-soft);
+			}
+			.c-detail {
+				display: flex;
+				align-items: flex-start;
+				gap: 1rem;
+			}
+			.c-icon {
+				width: 42px;
+				height: 42px;
+				background: var(--blue-glow);
+				border: 1px solid var(--border-blue);
+				border-radius: 10px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-shrink: 0;
+			}
+			.c-icon svg {
+				width: 18px;
+				height: 18px;
+				color: var(--blue-soft);
+			}
+			.c-text p {
+				font-size: 0.72rem;
+				color: var(--white-muted);
+				margin-bottom: 0.2rem;
+				text-transform: uppercase;
+				letter-spacing: 0.09em;
+			}
+			.c-text span,
+			.c-text a {
+				font-size: 0.93rem;
+				color: var(--white);
+				text-decoration: none;
+				transition: color 0.2s;
+			}
+			.c-text a:hover {
+				color: var(--blue-soft);
+			}
+			/* right form panel — white card */
+			.contact-form-wrap {
+				background: #ffffff;
+				border-radius: 16px;
+				padding: 3rem;
+				box-shadow: 0 8px 40px rgba(0, 0, 0, 0.14);
+			}
+			.form-header {
+				margin-bottom: 2rem;
+			}
+			.form-header h3 {
+				font-family: var(--font-display);
+				font-size: 1.8rem;
+				font-weight: 600;
+				margin-bottom: 0.4rem;
+				color: var(--white);
+			}
+			.form-header p {
+				font-size: 0.88rem;
+				color: var(--white-muted);
+			}
+			.form-group {
+				margin-bottom: 1.3rem;
+			}
+			.form-row {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1.2rem;
+			}
+			label {
+				display: block;
+				font-size: 0.74rem;
+				letter-spacing: 0.07em;
+				text-transform: uppercase;
+				color: var(--white-muted);
+				margin-bottom: 0.45rem;
+			}
+			input,
+			select,
+			textarea {
+				width: 100%;
+				background: #f7f9ff;
+				border: 1.5px solid var(--border);
+				border-radius: 8px;
+				padding: 0.8rem 1rem;
+				color: var(--white);
+				font-family: var(--font-body);
+				font-size: 0.93rem;
+				font-weight: 300;
+				transition:
+					border-color 0.2s,
+					box-shadow 0.2s;
+				outline: none;
+				-webkit-appearance: none;
+				appearance: none;
+			}
+			input::placeholder,
+			textarea::placeholder {
+				color: var(--white-dim);
+			}
+			input:focus,
+			select:focus,
+			textarea:focus {
+				border-color: var(--blue-soft);
+				box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+				background: #fff;
+			}
+			select option {
+				background: #fff;
+				color: var(--white);
+			}
+			textarea {
+				resize: vertical;
+				min-height: 110px;
+			}
+			.btn-submit {
+				width: 100%;
+				background: var(--blue-bright);
+				color: #ffffff;
+				padding: 1rem 2rem;
+				border-radius: 8px;
+				font-family: var(--font-body);
+				font-size: 1rem;
+				font-weight: 500;
+				border: none;
+				cursor: pointer;
+				transition:
+					background 0.25s,
+					transform 0.25s;
+				margin-top: 0.5rem;
+				text-align: center;
+				text-decoration: none;
+				display: block;
+			}
+			.btn-submit:hover {
+				background: var(--blue-soft);
+				transform: translateY(-2px);
+			}
+			.form-note {
+				text-align: center;
+				margin-top: 0.8rem;
+				font-size: 0.78rem;
+				color: var(--white-dim);
+			}
+			/* clarity section below */
+			.clarity-section {
+				background: var(--surface);
+				border-top: 1px solid var(--border);
+				padding: 5rem 2.5rem;
+			}
+			.clarity-inner {
+				max-width: 860px;
+				margin: 0 auto;
+			}
+			.clarity-inner h3 {
+				font-family: var(--font-display);
+				font-size: clamp(1.8rem, 3vw, 2.5rem);
+				font-weight: 600;
+				line-height: 1.2;
+				margin-bottom: 0.8rem;
+			}
+			.clarity-inner h3 em {
+				font-style: italic;
+				color: var(--blue-soft);
+			}
+			.clarity-inner > p {
+				font-size: 0.95rem;
+				color: var(--white-muted);
+				margin-bottom: 2.5rem;
+				line-height: 1.8;
+			}
+			.clarity-cards {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+				gap: 1rem;
+			}
+			.clarity-card {
+				background: #fff;
+				border: 1.5px solid var(--border);
+				border-radius: 12px;
+				padding: 1.5rem;
+				transition: border-color 0.25s;
+			}
+			.clarity-card:hover {
+				border-color: var(--border-blue);
+			}
+			.clarity-num {
+				font-family: var(--font-display);
+				font-size: 2rem;
+				font-weight: 700;
+				color: var(--blue-line);
+				line-height: 1;
+				margin-bottom: 0.8rem;
+			}
+			.clarity-card p {
+				font-size: 0.88rem;
+				color: var(--white-muted);
+				line-height: 1.75;
+			}
+
+			/* FOOTER */
+			footer {
+				background: var(--surface);
+				border-top: 1px solid var(--border);
+				padding: 4rem 2.5rem 2rem;
+			}
+			.footer-inner {
+				max-width: 1120px;
+				margin: 0 auto;
+			}
+			.footer-top {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				gap: 3rem;
+				flex-wrap: wrap;
+				margin-bottom: 3rem;
+				padding-bottom: 3rem;
+				border-bottom: 1px solid var(--border);
+			}
+			.footer-brand .logo-text {
+				font-family: var(--font-display);
+				font-size: 1.8rem;
+				font-weight: 600;
+				color: var(--white);
+				display: block;
+				margin-bottom: 0.8rem;
+				cursor: pointer;
+				letter-spacing: -0.01em;
+			}
+			.footer-brand .logo-text span {
+				color: var(--blue-soft);
+			}
+			.footer-brand p {
+				font-size: 0.88rem;
+				color: var(--white-muted);
+				max-width: 260px;
+				line-height: 1.78;
+			}
+			.footer-links h4 {
+				font-size: 0.72rem;
+				letter-spacing: 0.14em;
+				text-transform: uppercase;
+				color: var(--white-muted);
+				margin-bottom: 1.2rem;
+			}
+			.footer-links ul {
+				list-style: none;
+			}
+			.footer-links li {
+				margin-bottom: 0.6rem;
+			}
+			.footer-links a {
+				color: var(--white-muted);
+				text-decoration: none;
+				font-size: 0.88rem;
+				transition: color 0.2s;
+				cursor: pointer;
+			}
+			.footer-links a:hover {
+				color: var(--blue-soft);
+			}
+			.footer-bottom {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				flex-wrap: wrap;
+				gap: 1rem;
+			}
+			.footer-bottom p {
+				font-size: 0.8rem;
+				color: var(--white-dim);
+			}
+
+			/* REVEAL */
+			.reveal {
+				opacity: 0;
+				transform: translateY(28px);
+				transition:
+					opacity 0.75s ease,
+					transform 0.75s ease;
+			}
+			.reveal.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+			.d1 {
+				transition-delay: 0.1s;
+			}
+			.d2 {
+				transition-delay: 0.2s;
+			}
+			.d3 {
+				transition-delay: 0.3s;
+			}
+			.d4 {
+				transition-delay: 0.4s;
+			}
+
+			/* RESPONSIVE */
+			@media (max-width: 1024px) {
+				.hero-split-grid,
+				.services-hero-split,
+				.about-hero-split {
+					grid-template-columns: 1fr;
+					min-height: auto;
+				}
+				.hero-visual-panel,
+				.shs-visual,
+				.ahs-visual {
+					min-height: 260px;
+					border-radius: 0;
+				}
+				.hero-inner,
+				.shs-inner,
+				.ahs-inner {
+					padding: 3rem 2.5rem 4rem;
+				}
+				.svc-page-grid {
+					grid-template-columns: 1fr 1fr;
+				}
+				.how-split {
+					grid-template-columns: 1fr;
+				}
+				.how-split-ph {
+					min-height: 260px;
+				}
+				.how-split-content {
+					padding: 3.5rem 2rem;
+				}
+				.contact-split {
+					grid-template-columns: 1fr;
+				}
+			}
+			@media (max-width: 768px) {
+				.hamburger {
+					display: flex;
+				}
+				.nav-links {
+					position: fixed;
+					top: 0;
+					right: 0;
+					width: 76vw;
+					max-width: 300px;
+					height: 100vh;
+					background: var(--surface);
+					flex-direction: column;
+					padding: 6rem 2rem 2rem;
+					gap: 1.5rem;
+					transform: translateX(100%);
+					transition: transform 0.35s ease;
+					border-left: 1px solid var(--border);
+					z-index: 490;
+				}
+				.nav-links.open {
+					transform: translateX(0);
+				}
+				.svc-page-grid {
+					grid-template-columns: 1fr;
+				}
+				.contact-form-wrap {
+					padding: 2rem;
+				}
+				.form-row {
+					grid-template-columns: 1fr;
+				}
+				.footer-top {
+					flex-direction: column;
+				}
+				.footer-bottom {
+					flex-direction: column;
+					text-align: center;
+				}
+				section {
+					padding: 5rem 1.5rem;
+				}
+				.problem-section {
+					margin-left: 1rem;
+					margin-right: 1rem;
+					border-radius: 1.2rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- NAV -->
+		<nav>
+			<a
+				class="nav-logo"
+				onclick="showPage('home')"
+				style="cursor: pointer">
+				<span class="nav-logo-dot"></span>Nestro<span>Stack</span>
+			</a>
+			<ul
+				class="nav-links"
+				id="navLinks">
+				<li>
+					<a
+						onclick="showPage('home')"
+						data-page="home"
+						class="active"
+						>Home</a
+					>
+				</li>
+				<li>
+					<a
+						onclick="showPage('services')"
+						data-page="services"
+						>Services</a
+					>
+				</li>
+				<li>
+					<a
+						onclick="showPage('about')"
+						data-page="about"
+						>About</a
+					>
+				</li>
+				<li>
+					<a
+						onclick="showPage('contact')"
+						data-page="contact"
+						>Contact</a
+					>
+				</li>
+				<li>
+					<a
+						href="https://api.leadconnectorhq.com/widget/booking/IKqC5JSvzvRrK3N1qfJ1"
+						target="_blank"
+						class="nav-cta"
+						>Book a Call</a
+					>
+				</li>
+			</ul>
+			<button
+				class="hamburger"
+				id="hamburger">
+				<span></span><span></span><span></span>
+			</button>
+		</nav>
+
+		<!-- ════════════════════  HOME  ════════════════════ -->
+		<div
+			class="page active"
+			id="page-home">
+			<div class="hero-wrap">
+				<div class="hero-grid-lines"></div>
+				<div class="hero-split-grid">
+					<div class="hero-inner">
+						<p class="hero-eyebrow">Business Automation Agency</p>
+						<h1 class="hero-headline">
+							Stop Running Your Business on <em>Chaos.</em> Start Running
+							It on <em>Systems.</em>
+						</h1>
+						<p class="hero-sub">
+							Nestro Stack helps coaches, entrepreneurs, and real estate
+							agents replace overwhelming manual work with automated
+							business workflows that generate leads and drive income.
+						</p>
+						<div class="hero-actions">
+							<a
+								href="https://api.leadconnectorhq.com/widget/booking/IKqC5JSvzvRrK3N1qfJ1"
+								target="_blank"
+								class="btn-primary"
+								><svg
+									class="btn-icon"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round">
+									<path d="M8 2v4" />
+									<path d="M16 2v4" />
+									<rect
+										width="18"
+										height="18"
+										x="3"
+										y="4"
+										rx="2" />
+									<path d="M3 10h18" /></svg
+								>Book a Free Clarity Call</a
+							>
+							<button
+								class="btn-ghost"
+								onclick="showPage('services')">
+								See How It Works<svg
+									class="btn-icon"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round">
+									<path d="M5 12h14" />
+									<path d="m12 5 7 7-7 7" />
+								</svg>
+							</button>
+						</div>
+					</div>
+					<div class="hero-visual-panel">
+						<svg
+							width="130"
+							height="130"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="#ffffff"
+							stroke-width="1.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							opacity="0.95">
+							<rect
+								width="8"
+								height="8"
+								x="3"
+								y="3"
+								rx="2" />
+							<path d="M7 11v4a2 2 0 0 0 2 2h4" />
+							<rect
+								width="8"
+								height="8"
+								x="13"
+								y="13"
+								rx="2" />
+						</svg>
+					</div>
+				</div>
+			</div>
+
+			<!-- PROBLEM -->
+			<section class="problem-section reveal">
+				<div class="container problem-container">
+					<p class="section-label center">The Problem We Solve</p>
+					<h2 class="problem-headline">
+						Your business should not <mark>always</mark> depend on you
+						being in the room.
+					</h2>
+					<p class="problem-text">
+						We have seen it happen to the best people. Talented coaches,
+						hardworking real estate agents, driven entrepreneurs held
+						hostage by the very business they built.
+						<strong
+							>The missing piece is never more effort. It is always a
+							system.</strong
+						>
+						And that is exactly what Nestro Stack builds.
+					</p>
+					<a
+						href="https://api.leadconnectorhq.com/widget/booking/IKqC5JSvzvRrK3N1qfJ1"
+						target="_blank"
+						class="problem-btn"
+						><svg
+							class="btn-icon"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round">
+							<path d="M8 2v4" />
+							<path d="M16 2v4" />
+							<rect
+								width="18"
+								height="18"
+								x="3"
+								y="4"
+								rx="2" />
+							<path d="M3 10h18" /></svg
+						>Book a Free Clarity Call</a
+					>
+				</div>
+			</section>
+
+			<!-- SERVICES PREVIEW -->
+			<section>
+				<div class="container">
+					<div class="reveal">
+						<p class="section-label">What We Build</p>
+						<h2 class="section-headline">
+							Everything your business needs
+							<em>to run without you</em> holding it together.
+						</h2>
+						<p class="section-sub">
+							From CRM setup to full automation stacks, we build systems
+							that work while you focus on what only you can do.
+						</p>
+					</div>
+					<div
+						class="services-grid"
+						style="
+							grid-template-columns: repeat(
+								auto-fit,
+								minmax(300px, 1fr)
+							);
+						">
+						<div class="service-card reveal d1">
+							<div class="service-icon-wrap">
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.6"
+									stroke-linecap="round"
+									stroke-linejoin="round">
+									<ellipse
+										cx="12"
+										cy="5"
+										rx="9"
+										ry="3" />
+									<path d="M3 5V19A9 3 0 0 0 21 19V5" />
+									<path d="M3 12A9 3 0 0 0 21 12" />
+								</svg>
+							</div>
+							<h3>CRM Setup and Optimization</h3>
+							<p>
+								Every lead tracked. Every client remembered. Configured
+								for your business, not a template.
+							</p>
+						</div>
+						<div class="service-card reveal d2">
+							<div class="service-icon-wrap">
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.6"
+									stroke-linecap="round"
+									stroke-linejoin="round">
+									<rect
+										width="8"
+										height="8"
+										x="3"
+										y="3"
+										rx="2" />
+									<path d="M7 11v4a2 2 0 0 0 2 2h4" />
+									<rect
+										width="8"
+										height="8"
+										x="13"
+										y="13"
+										rx="2" />
+								</svg>
+							</div>
+							<h3>Workflow Automation</h3>
+							<p>
+								Connect your tools so your business runs like a machine.
+								No more manual handoffs.
+							</p>
+						</div>
+						<div class="service-card reveal d3">
+							<div class="service-icon-wrap">
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.6"
+									stroke-linecap="round"
+									stroke-linejoin="round">
+									<circle
+										cx="12"
+										cy="12"
+										r="10" />
+									<circle
+										cx="12"
+										cy="12"
+										r="6" />
+									<circle
+										cx="12"
+										cy="12"
+										r="2" />
+								</svg>
+							</div>
+							<h3>Lead Generation Systems</h3>
+							<p>
+								A pipeline that works while you sleep. End-to-end lead
+								capture and follow-up automation.
+							</p>
+						</div>
+						<div class="service-card reveal d1">
+							<div class="service-icon-wrap">
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.6"
+									stroke-linecap="round"
+									stroke-linejoin="round">
+									<path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z" />
+								</svg>
+							</div>
+							<h3>Sales Funnel Design</h3>
+							<p>
+								Map the journey from stranger to paying client then
+								automate every step.
+							</p>
+						</div>
+						<div class="service-card reveal d2">
+							<div class="service-icon-wrap">
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.6"
+									stroke-linecap="round"
+									stroke-linejoin="round">
+									<path d="m3 11 18-5v12L3 14v-3z" />
+									<path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
+								</svg>
+							</div>
+							<h3>Marketing Execution</h3>
+							<p>
+								Consistent, strategic social media and campaigns without
+								you living on your phone.
+							</p>
+						</div>
+						<div class="service-card reveal d3">
+							<div class="service-icon-wrap">
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.6"
+									stroke-linecap="round"
+									stroke-linejoin="round">
+									<path d="M8 2v4" />
+									<path d="M16 2v4" />
+									<rect
+										width="18"
+										height="18"
+										x="3"
+										y="4"
+										rx="2" />
+									<path d="M3 10h18" />
+								</svg>
+							</div>
+							<h3>Appointment Booking</h3>
+							<p>
+								Let clients book themselves. You just show up. Fully
+								automated booking and onboarding.
+							</p>
+						</div>
+					</div>
+					<div
+						style="text-align: center; margin-top: 3.5rem"
+						class="reveal">
+						<button
+							class="btn-primary"
+							onclick="showPage('services')">
+							View All Services<svg
+								class="btn-icon"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round">
+								<path d="M5 12h14" />
+								<path d="m12 5 7 7-7 7" />
+							</svg>
+						</button>
+					</div>
+				</div>
+			</section>
+
+			<!-- HOW IT WORKS -->
+			<div class="how-split reveal">
+				<div class="how-split-ph">
+					<img
+						src="https://www.nestrostack.com/images/approach-img.jpg"
+						alt="Our approach"
+						style="
+							width: 100%;
+							height: 100%;
+							object-fit: cover;
+							display: block;
+						" />
+				</div>
+				<div class="how-split-content">
+					<p class="section-label">The Process</p>
+					<h2 class="section-headline">
+						The steps we take to find the <em>right solution.</em>
+					</h2>
+					<p class="section-sub">
+						We made it simple on purpose. You have been overwhelmed long
+						enough.
+					</p>
+					<div class="steps-list">
+						<div class="step-item reveal d1">
+							<div class="step-num">01</div>
+							<div class="step-body">
+								<h3>Clarity Call</h3>
+								<p>
+									We listen first. No pitching, no jargon. Just a real
+									conversation where we map your current chaos and
+									understand exactly what your business needs.
+								</p>
+							</div>
+						</div>
+						<div class="step-item reveal d2">
+							<div class="step-num">02</div>
+							<div class="step-body">
+								<h3>Systems Blueprint</h3>
+								<p>
+									We design your custom automation stack built around
+									your specific business, your tools, and your goals.
+									Nothing generic. Everything intentional.
+								</p>
+							</div>
+						</div>
+						<div class="step-item reveal d3">
+							<div class="step-num">03</div>
+							<div class="step-body">
+								<h3>Build and Hand Over</h3>
+								<p>
+									We build it, test it, and hand you a business that
+									actually runs. Clarity, confidence, and a system that
+									works without you babysitting it.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- TESTIMONIALS -->
+			<section class="testi-section">
+				<div class="container">
+					<div class="reveal">
+						<p class="section-label">What It Feels Like After</p>
+						<h2 class="section-headline">
+							Real outcomes from<br />our best clients.
+						</h2>
+					</div>
+					<div class="testi-grid">
+						<div class="testi-card reveal d1">
+							<div class="testi-stars">
+								<svg viewBox="0 0 24 24">
+									<polygon
+										points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg
+								><svg viewBox="0 0 24 24">
+									<polygon
+										points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg
+								><svg viewBox="0 0 24 24">
+									<polygon
+										points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg
+								><svg viewBox="0 0 24 24">
+									<polygon
+										points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg
+								><svg viewBox="0 0 24 24">
+									<polygon
+										points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+								</svg>
+							</div>
+							<blockquote>
+								For the first time in two years, I took a full weekend
+								off and nothing broke. That alone was worth everything.
+							</blockquote>
+							<div class="testi-author">
+								<div class="t-avatar">SM</div>
+								<div>
+									<div class="t-name">Sarah M.</div>
+									<div class="t-role">Business Coach</div>
+								</div>
+							</div>
+						</div>
+						<div class="testi-card reveal d2">
+							<div class="testi-stars">
+								<svg viewBox="0 0 24 24">
+									<polygon
+										points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg
+								><svg viewBox="0 0 24 24">
+									<polygon
+										points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg
+								><svg viewBox="0 0 24 24">
+									<polygon
+										points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg
+								><svg viewBox="0 0 24 24">
+									<polygon
+										points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg
+								><svg viewBox="0 0 24 24">
+									<polygon
+										points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+								</svg>
+							</div>
+							<blockquote>
+								They did not just set up my CRM. They gave me my sanity
+								back. I finally feel like I am running a business
+								instead of just surviving one.
+							</blockquote>
+							<div class="testi-author">
+								<div class="t-avatar">JT</div>
+								<div>
+									<div class="t-name">James T.</div>
+									<div class="t-role">Real Estate Agent</div>
+								</div>
+							</div>
+						</div>
+						<div class="testi-card reveal d3">
+							<div class="testi-stars">
+								<svg viewBox="0 0 24 24">
+									<polygon
+										points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg
+								><svg viewBox="0 0 24 24">
+									<polygon
+										points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg
+								><svg viewBox="0 0 24 24">
+									<polygon
+										points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg
+								><svg viewBox="0 0 24 24">
+									<polygon
+										points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg
+								><svg viewBox="0 0 24 24">
+									<polygon
+										points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+								</svg>
+							</div>
+							<blockquote>
+								I came in overwhelmed and left with a system I actually
+								understood. The clarity alone was worth the investment.
+							</blockquote>
+							<div class="testi-author">
+								<div class="t-avatar">DR</div>
+								<div>
+									<div class="t-name">Dana R.</div>
+									<div class="t-role">Entrepreneur</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="cta-section">
+				<div class="container">
+					<p class="section-label center">Ready When You Are</p>
+					<h2 class="section-headline reveal">
+						Your business deserves a <em>foundation.</em><br />Let us
+						build it.
+					</h2>
+					<p
+						class="section-sub reveal d1"
+						style="margin: 0 auto 3rem; text-align: center">
+						Book a free 30-minute Clarity Call. No pitch. No pressure.
+					</p>
+					<div class="reveal d2">
+						<a
+							href="https://api.leadconnectorhq.com/widget/booking/IKqC5JSvzvRrK3N1qfJ1"
+							target="_blank"
+							class="btn-primary"
+							style="font-size: 1rem; padding: 1rem 2.5rem"
+							>Book Your Free Clarity Call</a
+						>
+					</div>
+				</div>
+			</section>
+
+			<footer>
+				<div class="footer-inner">
+					<div class="footer-top">
+						<div class="footer-brand">
+							<span
+								class="logo-text"
+								onclick="showPage('home')"
+								>Nestro<span>Stack</span></span
+							>
+							<p>We build the business behind your business.</p>
+						</div>
+						<div class="footer-links">
+							<h4>Pages</h4>
+							<ul>
+								<li><a onclick="showPage('home')">Home</a></li>
+								<li><a onclick="showPage('services')">Services</a></li>
+								<li><a onclick="showPage('about')">About</a></li>
+								<li><a onclick="showPage('contact')">Contact</a></li>
+							</ul>
+						</div>
+						<div class="footer-links">
+							<h4>Services</h4>
+							<ul>
+								<li><a onclick="showPage('services')">CRM Setup</a></li>
+								<li>
+									<a onclick="showPage('services')">Automation</a>
+								</li>
+								<li>
+									<a onclick="showPage('services')">Lead Generation</a>
+								</li>
+								<li>
+									<a onclick="showPage('services')">Sales Funnels</a>
+								</li>
+							</ul>
+						</div>
+						<div class="footer-links">
+							<h4>Contact</h4>
+							<ul>
+								<li>
+									<a href="mailto:contact@nestrostack.com"
+										>contact@nestrostack.com</a
+									>
+								</li>
+								<li><a href="tel:+18302669617">+1 830-266-9617</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="footer-bottom">
+						<p>2025 Nestro Stack. All rights reserved.</p>
+						<p><em>"We build the business behind your business."</em></p>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		<!-- ════════════════════  SERVICES  ════════════════════ -->
+		<div
+			class="page"
+			id="page-services">
+			<div
+				class="hero-wrap"
+				style="position: relative; overflow: hidden">
+				<div class="hero-grid-lines"></div>
+				<div class="services-hero-split">
+					<div class="shs-inner">
+						<p class="shs-eyebrow">What We Build</p>
+						<h1 class="shs-headline">
+							We build systems that
+							<em>generate leads and income</em> for your business in
+							your absence.
+						</h1>
+						<p class="shs-sub">
+							No fluff, no templates. Every system is purpose-built
+							around your specific business, your clients, and your
+							goals.
+						</p>
+						<div
+							style="
+								display: flex;
+								gap: 1rem;
+								flex-wrap: wrap;
+								opacity: 0;
+								animation: fadeUp 0.9s ease forwards 0.8s;
+							">
+							<a
+								href="https://api.leadconnectorhq.com/widget/booking/IKqC5JSvzvRrK3N1qfJ1"
+								target="_blank"
+								class="btn-primary"
+								><svg
+									class="btn-icon"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round">
+									<path d="M8 2v4" />
+									<path d="M16 2v4" />
+									<rect
+										width="18"
+										height="18"
+										x="3"
+										y="4"
+										rx="2" />
+									<path d="M3 10h18" /></svg
+								>Book a Free Clarity Call</a
+							>
+						</div>
+					</div>
+					<div class="shs-visual">
+						<svg
+							width="120"
+							height="120"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="#ffffff"
+							stroke-width="1.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							opacity="0.95">
+							<rect
+								width="8"
+								height="8"
+								x="3"
+								y="3"
+								rx="2" />
+							<path d="M7 11v4a2 2 0 0 0 2 2h4" />
+							<rect
+								width="8"
+								height="8"
+								x="13"
+								y="13"
+								rx="2" />
+						</svg>
+					</div>
+				</div>
+			</div>
+
+			<section>
+				<div class="container">
+					<div class="reveal">
+						<p class="section-label">Our Services</p>
+						<h2 class="section-headline">
+							Six ways we transform <em>how your business operates.</em>
+						</h2>
+					</div>
+					<div
+						class="svc-page-grid"
+						id="svcPageGrid">
+						<!-- injected by JS -->
+					</div>
+				</div>
+			</section>
+
+			<!-- TOOLS MARQUEE -->
+			<div class="tools-section">
+				<div class="tools-header reveal">
+					<p class="section-label">Platforms We Work With</p>
+					<h2 class="section-headline">
+						We meet you <em>where you already are.</em>
+					</h2>
+					<p class="section-sub">
+						No forcing you into new tools. We build with what works for
+						your business.
+					</p>
+				</div>
+				<div class="marquee-wrapper">
+					<div
+						class="marquee-track"
+						id="marqueeTrack"></div>
+				</div>
+			</div>
+
+			<section class="cta-section">
+				<div class="container">
+					<p class="section-label center">Start Here</p>
+					<h2 class="section-headline reveal">
+						Not sure which service you need? <em>That is okay.</em>
+					</h2>
+					<p
+						class="section-sub reveal d1"
+						style="margin: 0 auto 3rem; text-align: center">
+						The Clarity Call is exactly for that. We will map your chaos
+						together and tell you exactly what to build first.
+					</p>
+					<div class="reveal d2">
+						<a
+							href="https://api.leadconnectorhq.com/widget/booking/IKqC5JSvzvRrK3N1qfJ1"
+							target="_blank"
+							class="btn-primary"
+							style="font-size: 1rem; padding: 1rem 2.5rem"
+							>Book Your Free Clarity Call</a
+						>
+					</div>
+				</div>
+			</section>
+
+			<footer>
+				<div class="footer-inner">
+					<div class="footer-top">
+						<div class="footer-brand">
+							<span
+								class="logo-text"
+								onclick="showPage('home')"
+								>Nestro<span>Stack</span></span
+							>
+							<p>We build the business behind your business.</p>
+						</div>
+						<div class="footer-links">
+							<h4>Pages</h4>
+							<ul>
+								<li><a onclick="showPage('home')">Home</a></li>
+								<li><a onclick="showPage('services')">Services</a></li>
+								<li><a onclick="showPage('about')">About</a></li>
+								<li><a onclick="showPage('contact')">Contact</a></li>
+							</ul>
+						</div>
+						<div class="footer-links">
+							<h4>Services</h4>
+							<ul>
+								<li><a onclick="showPage('services')">CRM Setup</a></li>
+								<li>
+									<a onclick="showPage('services')">Automation</a>
+								</li>
+								<li>
+									<a onclick="showPage('services')">Lead Generation</a>
+								</li>
+								<li>
+									<a onclick="showPage('services')">Sales Funnels</a>
+								</li>
+							</ul>
+						</div>
+						<div class="footer-links">
+							<h4>Contact</h4>
+							<ul>
+								<li>
+									<a href="mailto:contact@nestrostack.com"
+										>contact@nestrostack.com</a
+									>
+								</li>
+								<li><a href="tel:+18302669617">+1 830-266-9617</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="footer-bottom">
+						<p>2025 Nestro Stack. All rights reserved.</p>
+						<p><em>"We build the business behind your business."</em></p>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		<!-- ════════════════════  ABOUT  ════════════════════ -->
+		<div
+			class="page"
+			id="page-about">
+			<div
+				class="hero-wrap"
+				style="position: relative; overflow: hidden">
+				<div class="hero-grid-lines"></div>
+				<div class="about-hero-split">
+					<div class="ahs-inner">
+						<p class="ahs-eyebrow">Our Story</p>
+						<h1 class="ahs-headline">
+							We exist because <em>good businesses</em> should not fail
+							for lack of systems.
+						</h1>
+						<p class="ahs-sub">
+							Nestro Stack was built for the business owners who are
+							talented, driven, and doing everything right — but still
+							feel like they are barely keeping up.
+						</p>
+					</div>
+					<div class="ahs-visual">
+						<svg
+							width="120"
+							height="120"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="#ffffff"
+							stroke-width="1.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							opacity="0.95">
+							<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+							<circle
+								cx="9"
+								cy="7"
+								r="4" />
+							<path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+							<path d="M16 3.13a4 4 0 0 1 0 7.75" />
+						</svg>
+					</div>
+				</div>
+			</div>
+
+			<!-- WHY WE EXIST — centred, hyphens -->
+			<section class="about-why">
+				<div
+					class="container"
+					style="max-width: 680px">
+					<div
+						class="reveal"
+						style="text-align: center">
+						<p class="section-label center">Why We Exist</p>
+						<h2 class="section-headline">
+							We have seen it<br /><em>too many times.</em>
+						</h2>
+						<p
+							style="
+								font-size: 1rem;
+								color: var(--white-muted);
+								line-height: 1.85;
+								margin-bottom: 2rem;
+							">
+							Good people, losing business, because of missing systems.
+							That is the only problem we solve.
+						</p>
+					</div>
+					<p
+						class="reveal d1"
+						style="
+							font-size: 1rem;
+							color: var(--white-muted);
+							line-height: 2;
+							text-align: center;
+							max-width: 600px;
+							margin: 0 auto;
+						">
+						A brilliant coach losing leads because her CRM is not set up —
+						a real estate agent missing follow-ups because everything
+						lives in his head — an entrepreneur who cannot take a day off
+						because the business falls apart without her — none of these
+						are people-problems — they are systems problems — systems can
+						be fixed — and that is exactly what we do — we stay until it
+						works.
+					</p>
+				</div>
+			</section>
+
+			<section class="values-section">
+				<div class="container">
+					<div class="reveal">
+						<p class="section-label">What We Stand For</p>
+						<h2 class="section-headline">
+							The values that guide <em>everything we build.</em>
+						</h2>
+					</div>
+					<div class="values-grid">
+						<div class="value-card reveal d1">
+							<h3>Clarity First</h3>
+							<p>
+								We never start building until you have complete clarity
+								on what is being built and why.
+							</p>
+						</div>
+						<div class="value-card reveal d2">
+							<h3>We Are in This Together</h3>
+							<p>
+								We work alongside you, not above you. Your wins are our
+								wins.
+							</p>
+						</div>
+						<div class="value-card reveal d1">
+							<h3>Outcomes Over Deliverables</h3>
+							<p>
+								We are here to make sure what we build actually changes
+								how you operate.
+							</p>
+						</div>
+						<div class="value-card reveal d2">
+							<h3>No Overwhelm Allowed</h3>
+							<p>
+								Every system we build is designed to simplify, not
+								complicate. If it is confusing, it is not done yet.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="about-cta">
+				<div
+					class="container"
+					style="text-align: center">
+					<p class="section-label center">Let us Meet</p>
+					<h2 class="section-headline reveal">
+						Ready to meet the <em>team behind your systems?</em>
+					</h2>
+					<p
+						style="
+							font-size: 1rem;
+							color: var(--white-muted);
+							max-width: 480px;
+							margin: 1rem auto 2.5rem;
+							line-height: 1.85;
+						"
+						class="reveal d1">
+						Start with a free Clarity Call. No pressure, no pitch, just a
+						real conversation about your business.
+					</p>
+					<div class="reveal d2">
+						<a
+							href="https://api.leadconnectorhq.com/widget/booking/IKqC5JSvzvRrK3N1qfJ1"
+							target="_blank"
+							class="btn-primary"
+							style="font-size: 1rem; padding: 1rem 2.5rem"
+							>Book Your Free Clarity Call</a
+						>
+					</div>
+				</div>
+			</section>
+
+			<footer>
+				<div class="footer-inner">
+					<div class="footer-top">
+						<div class="footer-brand">
+							<span
+								class="logo-text"
+								onclick="showPage('home')"
+								>Nestro<span>Stack</span></span
+							>
+							<p>We build the business behind your business.</p>
+						</div>
+						<div class="footer-links">
+							<h4>Pages</h4>
+							<ul>
+								<li><a onclick="showPage('home')">Home</a></li>
+								<li><a onclick="showPage('services')">Services</a></li>
+								<li><a onclick="showPage('about')">About</a></li>
+								<li><a onclick="showPage('contact')">Contact</a></li>
+							</ul>
+						</div>
+						<div class="footer-links">
+							<h4>Services</h4>
+							<ul>
+								<li><a onclick="showPage('services')">CRM Setup</a></li>
+								<li>
+									<a onclick="showPage('services')">Automation</a>
+								</li>
+								<li>
+									<a onclick="showPage('services')">Lead Generation</a>
+								</li>
+								<li>
+									<a onclick="showPage('services')">Sales Funnels</a>
+								</li>
+							</ul>
+						</div>
+						<div class="footer-links">
+							<h4>Contact</h4>
+							<ul>
+								<li>
+									<a href="mailto:contact@nestrostack.com"
+										>contact@nestrostack.com</a
+									>
+								</li>
+								<li><a href="tel:+18302669617">+1 830-266-9617</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="footer-bottom">
+						<p>2025 Nestro Stack. All rights reserved.</p>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		<!-- ════════════════════  CONTACT  ════════════════════ -->
+		<div
+			class="page"
+			id="page-contact">
+			<!-- hero on blue -->
+			<div class="contact-hero">
+				<div class="contact-hero-grid"></div>
+				<div class="container">
+					<p class="section-label center">Let us Talk</p>
+					<h1>Your clarity call starts <em>right here.</em></h1>
+					<p>
+						No pitch. No pressure. Just a real 30-minute conversation
+						about your business, where it is, and where you want it to go.
+					</p>
+				</div>
+			</div>
+
+			<!-- blue bg holds both panels -->
+			<div class="contact-main">
+				<div class="contact-split">
+					<!-- LEFT: info -->
+					<div class="contact-info-panel reveal">
+						<div>
+							<h2>We are genuinely <em>glad you are here.</em></h2>
+						</div>
+						<div class="c-detail">
+							<div class="c-icon">
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round">
+									<path
+										d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+									<polyline points="22,6 12,13 2,6" />
+								</svg>
+							</div>
+							<div class="c-text">
+								<p>Email</p>
+								<a href="mailto:contact@nestrostack.com"
+									>contact@nestrostack.com</a
+								>
+							</div>
+						</div>
+						<div class="c-detail">
+							<div class="c-icon">
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round">
+									<path
+										d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+								</svg>
+							</div>
+							<div class="c-text">
+								<p>Phone</p>
+								<a href="tel:+18302669617">+1 830-266-9617</a>
+							</div>
+						</div>
+						<div class="c-detail">
+							<div class="c-icon">
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round">
+									<circle
+										cx="12"
+										cy="12"
+										r="10" />
+									<polyline points="12 6 12 12 16 14" />
+								</svg>
+							</div>
+							<div class="c-text">
+								<p>Response Time</p>
+								<span>Within 24 hours</span>
+							</div>
+						</div>
+					</div>
+					<!-- RIGHT: white form card -->
+					<div class="contact-form-wrap reveal d1">
+						<div class="form-header">
+							<h3>Book Your Free Clarity Call</h3>
+							<p>
+								Fill this out and we will confirm your time within 24
+								hours.
+							</p>
+						</div>
+						<div class="form-row">
+							<div class="form-group">
+								<label>First Name</label
+								><input
+									type="text"
+									placeholder="Your first name" />
+							</div>
+							<div class="form-group">
+								<label>Last Name</label
+								><input
+									type="text"
+									placeholder="Your last name" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Email Address</label
+							><input
+								type="email"
+								placeholder="your@email.com" />
+						</div>
+						<div class="form-group">
+							<label>Phone Number</label
+							><input
+								type="tel"
+								placeholder="+1 (000) 000-0000" />
+						</div>
+						<div class="form-group">
+							<label>What best describes you?</label
+							><select>
+								<option
+									value=""
+									disabled
+									selected>
+									Select your role
+								</option>
+								<option>Coach or Consultant</option>
+								<option>Real Estate Agent</option>
+								<option>Entrepreneur or Founder</option>
+								<option>Small Business Owner</option>
+								<option>Other</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Your biggest challenge right now?</label
+							><select>
+								<option
+									value=""
+									disabled
+									selected>
+									Select your main challenge
+								</option>
+								<option>Leads slipping through the cracks</option>
+								<option>Tools that do not work together</option>
+								<option>
+									No time, stuck doing everything manually
+								</option>
+								<option>Inconsistent marketing and social media</option>
+								<option>Cannot scale, everything depends on me</option>
+								<option>Not sure where to start</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Tell us a little more (optional)</label
+							><textarea
+								placeholder="What would feel like a win for you in 90 days?"></textarea>
+						</div>
+						<a
+							href="https://api.leadconnectorhq.com/widget/booking/IKqC5JSvzvRrK3N1qfJ1"
+							target="_blank"
+							class="btn-submit"
+							>Book My Free Clarity Call</a
+						>
+					</div>
+				</div>
+			</div>
+
+			<!-- CLARITY SECTION — below the blue -->
+			<div class="clarity-section">
+				<div class="clarity-inner reveal">
+					<p class="section-label">What to Expect</p>
+					<h3>What happens on <em>the Clarity Call?</em></h3>
+					<p>A focused 30 minutes where we map your world together.</p>
+					<div class="clarity-cards">
+						<div class="clarity-card">
+							<div class="clarity-num">01</div>
+							<p>We listen to where you are and what is not working</p>
+						</div>
+						<div class="clarity-card">
+							<div class="clarity-num">02</div>
+							<p>
+								We find the 1 to 2 systems that would make the biggest
+								difference
+							</p>
+						</div>
+						<div class="clarity-card">
+							<div class="clarity-num">03</div>
+							<p>We tell you exactly what we would build and why</p>
+						</div>
+						<div class="clarity-card">
+							<div class="clarity-num">04</div>
+							<p>
+								You leave with clarity — whether you work with us or not
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<footer>
+				<div class="footer-inner">
+					<div class="footer-top">
+						<div class="footer-brand">
+							<span
+								class="logo-text"
+								onclick="showPage('home')"
+								>Nestro<span>Stack</span></span
+							>
+							<p>We build the business behind your business.</p>
+						</div>
+						<div class="footer-links">
+							<h4>Pages</h4>
+							<ul>
+								<li><a onclick="showPage('home')">Home</a></li>
+								<li><a onclick="showPage('services')">Services</a></li>
+								<li><a onclick="showPage('about')">About</a></li>
+								<li><a onclick="showPage('contact')">Contact</a></li>
+							</ul>
+						</div>
+						<div class="footer-links">
+							<h4>Services</h4>
+							<ul>
+								<li><a onclick="showPage('services')">CRM Setup</a></li>
+								<li>
+									<a onclick="showPage('services')">Automation</a>
+								</li>
+								<li>
+									<a onclick="showPage('services')">Lead Generation</a>
+								</li>
+								<li>
+									<a onclick="showPage('services')">Sales Funnels</a>
+								</li>
+							</ul>
+						</div>
+						<div class="footer-links">
+							<h4>Contact</h4>
+							<ul>
+								<li>
+									<a href="mailto:contact@nestrostack.com"
+										>contact@nestrostack.com</a
+									>
+								</li>
+								<li><a href="tel:+18302669617">+1 830-266-9617</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="footer-bottom">
+						<p>2025 Nestro Stack. All rights reserved.</p>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		<script>
+			/* ─── SERVICE DATA ─── */
+			const SERVICES = [
+				{
+					icon: '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/>',
+					badge: "GoHighLevel · HubSpot",
+					title: "CRM Setup & Optimization",
+					desc: "Every lead tracked. Every client remembered. Configured for your business, not a template.",
+					features: [
+						{ on: true, name: "Full CRM configuration" },
+						{ on: true, name: "Custom pipeline stages" },
+						{ on: true, name: "Automated follow-up sequences" },
+						{ on: false, name: "Data migration support" },
+						{ on: false, name: "Team training docs" },
+					],
+				},
+				{
+					icon: '<rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/>',
+					badge: "Zapier · Make",
+					title: "Workflow Automation",
+					desc: "Connect your entire stack so information flows automatically. No more cracks things fall through.",
+					features: [
+						{ on: true, name: "Tech stack audit" },
+						{ on: true, name: "Automated data flows" },
+						{ on: true, name: "Client onboarding automation" },
+						{ on: false, name: "Error monitoring" },
+						{ on: false, name: "System health checks" },
+					],
+				},
+				{
+					icon: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+					badge: "Pipeline · Nurture",
+					title: "Lead Generation Systems",
+					desc: "A pipeline that works while you sleep — from first touch to paying client, fully automated.",
+					features: [
+						{ on: true, name: "Lead capture and opt-ins" },
+						{ on: true, name: "Email & SMS nurture sequences" },
+						{ on: false, name: "Lead scoring workflows" },
+						{ on: false, name: "Re-engagement campaigns" },
+						{ on: false, name: "Conversion reporting" },
+					],
+				},
+				{
+					icon: '<path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/>',
+					badge: "Funnels · Revenue",
+					title: "Sales Funnel Design",
+					desc: "Guide prospects from awareness to decision with confidence — every touchpoint automated.",
+					features: [
+						{ on: true, name: "Customer journey mapping" },
+						{ on: true, name: "Landing and sales pages" },
+						{ on: false, name: "Checkout flow optimisation" },
+						{ on: false, name: "A/B testing" },
+						{ on: false, name: "Monthly funnel review" },
+					],
+				},
+				{
+					icon: '<path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>',
+					badge: "Strategy · Content",
+					title: "Marketing Execution",
+					desc: "Consistent marketing that does not require you to live on your phone. We plan and execute.",
+					features: [
+						{ on: true, name: "Social media strategy" },
+						{ on: true, name: "Content creation & scheduling" },
+						{ on: false, name: "Email campaigns" },
+						{ on: false, name: "Paid ad management" },
+						{ on: false, name: "Monthly analytics report" },
+					],
+				},
+				{
+					icon: '<path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>',
+					badge: "Booking · Onboarding",
+					title: "Appointment Booking",
+					desc: "Let clients book themselves, fill intake forms, and pay — without a single back-and-forth.",
+					features: [
+						{ on: true, name: "Booking page & calendar setup" },
+						{ on: true, name: "Confirmation & reminders" },
+						{ on: false, name: "Pre-call intake forms" },
+						{ on: false, name: "Payment collection" },
+						{ on: false, name: "No-show management" },
+					],
+				},
+			];
+
+			function checkSVG() {
+				return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+			}
+			function xSVG() {
+				return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+			}
+			function infoSVG() {
+				return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`;
+			}
+
+			function buildServiceCards() {
+				const grid = document.getElementById("svcPageGrid");
+				if (!grid) return;
+				grid.innerHTML = SERVICES.map(
+					(s, i) => `
+    <div class="svc-nora reveal ${i % 3 === 1 ? "d1" : i % 3 === 2 ? "d2" : ""}">
+      <div class="svc-nora-top">
+        <div class="svc-nora-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${s.icon}</svg></div>
+        <span class="svc-nora-badge">${s.badge}</span>
+      </div>
+      <h3>${s.title}</h3>
+      <p class="svc-desc">${s.desc}</p>
+      <hr class="svc-nora-divider"/>
+      <div class="svc-feat-list">
+        ${s.features
+				.map(
+					(f) => `
+          <div class="svc-feat-row">
+            <div class="svc-feat-left">
+              <div class="svc-feat-check ${f.on ? "on" : "off"}">${f.on ? checkSVG() : xSVG()}</div>
+              <span class="svc-feat-name ${f.on ? "" : "off-text"}">${f.name}</span>
+            </div>
+            <div class="svc-feat-info">${infoSVG()}</div>
+          </div>`,
+				)
+				.join("")}
+      </div>
+    </div>`,
+				).join("");
+				setTimeout(initReveal, 60);
+			}
+
+			/* ─── TOOLS ─── */
+			const tools = [
+				{
+					name: "GoHighLevel",
+					icon: '<path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>',
+				},
+				{
+					name: "HubSpot",
+					icon: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="22"/><line x1="2" y1="12" x2="8" y2="12"/><line x1="16" y1="12" x2="22" y2="12"/>',
+				},
+				{
+					name: "Monday.com",
+					icon: '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 9h6"/><path d="M9 12h6"/><path d="M9 15h4"/>',
+				},
+				{
+					name: "Zapier",
+					icon: '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>',
+				},
+				{
+					name: "Make",
+					icon: '<rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/>',
+				},
+				{
+					name: "ActiveCampaign",
+					icon: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>',
+				},
+				{
+					name: "Calendly",
+					icon: '<path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>',
+				},
+				{
+					name: "Stripe",
+					icon: '<rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/>',
+				},
+				{ name: "Mailchimp", icon: '<path d="m3 11 18-5v12L3 14v-3z"/>' },
+				{
+					name: "Notion",
+					icon: '<path d="M4 4h16v16H4z" rx="2"/><path d="M4 8h16"/><path d="M8 4v16"/>',
+				},
+				{
+					name: "Slack",
+					icon: '<path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>',
+				},
+				{
+					name: "Google Workspace",
+					icon: '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+				},
+				{
+					name: "Typeform",
+					icon: '<path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>',
+				},
+				{
+					name: "Airtable",
+					icon: '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/>',
+				},
+			];
+
+			function buildMarquee() {
+				const t = document.getElementById("marqueeTrack");
+				if (!t) return;
+				const doubled = [...tools, ...tools];
+				t.innerHTML = doubled
+					.map(
+						(tl) =>
+							`<div class="tool-pill"><span class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${tl.icon}</svg></span><span>${tl.name}</span></div>`,
+					)
+					.join("");
+			}
+
+			/* ─── PAGE SWITCHER ─── */
+			function showPage(name) {
+				document
+					.querySelectorAll(".page")
+					.forEach((p) => p.classList.remove("active"));
+				document.getElementById("page-" + name).classList.add("active");
+				document
+					.querySelectorAll(".nav-links a[data-page]")
+					.forEach((a) =>
+						a.classList.toggle("active", a.dataset.page === name),
+					);
+				window.scrollTo({ top: 0, behavior: "instant" });
+				document.getElementById("navLinks").classList.remove("open");
+				if (name === "services") {
+					buildServiceCards();
+					buildMarquee();
+				}
+				setTimeout(initReveal, 80);
+			}
+
+			document
+				.getElementById("hamburger")
+				.addEventListener("click", () =>
+					document.getElementById("navLinks").classList.toggle("open"),
+				);
+			document.addEventListener("click", (e) => {
+				const nav = document.getElementById("navLinks"),
+					btn = document.getElementById("hamburger");
+				if (!nav.contains(e.target) && !btn.contains(e.target))
+					nav.classList.remove("open");
+			});
+
+			let observer;
+			function initReveal() {
+				if (observer) observer.disconnect();
+				observer = new IntersectionObserver(
+					(entries) => {
+						entries.forEach((e) => {
+							if (e.isIntersecting) {
+								e.target.classList.add("visible");
+								observer.unobserve(e.target);
+							}
+						});
+					},
+					{ threshold: 0.07 },
+				);
+				document
+					.querySelector(".page.active")
+					?.querySelectorAll(".reveal")
+					.forEach((el) => {
+						el.classList.remove("visible");
+						observer.observe(el);
+					});
+			}
+			window.addEventListener("load", initReveal);
+		</script>
+	</body>
+</html>
