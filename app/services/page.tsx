@@ -22,7 +22,7 @@ export default function ServicesPage() {
               What We Build
             </p>
             <h1 className="font-display text-[clamp(2rem,4.5vw,3.8rem)] font-semibold leading-[1.1] mb-5 opacity-0 [animation:fadeUp_0.9s_ease_forwards_0.4s]">
-              We build systems that <em className="text-blue">generate leads and income</em> for your business in your absence.
+              Systems that let your <em className="text-blue">business breathe.</em>
             </h1>
             <p className="text-[1rem] text-ink-muted leading-[1.88] mb-7 max-w-[500px] opacity-0 [animation:fadeUp_0.9s_ease_forwards_0.6s] max-sm:text-[0.93rem] max-sm:mb-5">
               No fluff, no templates. Every system is purpose-built around your specific business, your clients, and your goals.

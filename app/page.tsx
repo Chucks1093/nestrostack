@@ -244,12 +244,12 @@ export default function Home() {
 							</Link>
 						</div>
 					</div>
-					<div className='relative overflow-hidden h-full bg-blue-bright rounded-bl-[3rem] max-lg:min-h-[240px] max-lg:rounded-none'>
+					<div className='relative overflow-hidden h-full bg-blue-bright  max-lg:min-h-[240px] max-lg:rounded-none'>
 						<Image
 							src='/images/image.png'
 							alt='Nestro Stack'
 							fill
-							className='object-cover brightness-75 object-top'
+							className='object-cover brightness-90 object-top'
 						/>
 						<div
 							className='absolute inset-0 z-[5] pointer-events-none'
