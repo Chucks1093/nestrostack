@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { BOOKING_URL } from "@/lib/data";
 
@@ -48,7 +49,7 @@ export default function Nav() {
 			<Link
 				href='/'
 				className='font-display text-[1.35rem] font-semibold text-ink no-underline tracking-[-0.01em] flex items-center gap-[0.35rem]'>
-				<span className='w-[7px] h-[7px] bg-blue-bright rounded-full inline-block animate-pulse-dot' />
+				<Image src="/icons/logo.png" alt="Nestro Stack" width={28} height={28} className="rounded-sm" />
 				Nestro<span className='text-blue'>Stack</span>
 			</Link>
 

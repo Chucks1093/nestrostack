@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Cormorant_Garamond, Outfit } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
+import ChatbaseWidget from '@/components/ChatbaseWidget'
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -19,6 +20,11 @@ export const metadata: Metadata = {
   title: 'Nestro Stack — We Build the Business Behind Your Business',
   description:
     'Nestro Stack helps coaches, entrepreneurs, and real estate agents replace overwhelming manual work with automated business workflows that generate leads and drive income.',
+  icons: {
+    icon: '/icons/logo.png',
+    apple: '/icons/logo.png',
+    shortcut: '/icons/logo.png',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -27,6 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-white text-ink font-body font-light leading-[1.7] overflow-x-hidden">
         <Nav />
         {children}
+        <ChatbaseWidget />
       </body>
     </html>
   )
