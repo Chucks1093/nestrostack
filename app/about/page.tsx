@@ -27,7 +27,7 @@ export default function AboutPage() {
               Nestro Stack was built for the business owners who are talented, driven, and doing everything right — but still feel like they are barely keeping up.
             </p>
           </div>
-          <div className="relative overflow-hidden h-full bg-blue-bright rounded-br-[3rem] max-lg:min-h-[240px] max-lg:rounded-none">
+          <div className="relative overflow-hidden h-full bg-blue-bright rounded-2xl max-lg:min-h-[240px] max-lg:rounded-xl">
             <Image src="/images/hero.jpg" alt="Nestro Stack about" fill className="object-cover brightness-75" />
             <div className="absolute inset-0 z-[5] pointer-events-none" style={{ backgroundImage: "url('/images/noise.png')", backgroundRepeat: "repeat" }} />
             <div className="absolute inset-0 z-10 flex items-center justify-center hidden">

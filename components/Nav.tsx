@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { BOOKING_URL } from "@/lib/data";
+import { PhoneCall } from "lucide-react";
 
 const LINKS = [
 	{ href: "/", label: "Home" },
@@ -71,7 +72,8 @@ export default function Nav() {
 						href={BOOKING_URL}
 						target='_blank'
 						rel='noopener noreferrer'
-						className='bg-blue-bright text-white px-[1.4rem] py-[0.5rem] rounded-[5px] text-[0.83rem] font-medium tracking-[0.07em] uppercase no-underline transition-all duration-200 hover:bg-blue hover:-translate-y-px'>
+						className='bg-blue-bright text-white px-[1.4rem] py-[0.5rem] rounded-[5px] text-[0.83rem] font-medium tracking-[0.07em] uppercase no-underline transition-all duration-200 hover:bg-blue hover:-translate-y-px inline-flex items-center gap-[0.45rem]'>
+						<PhoneCall size={14} strokeWidth={2} />
 						Book a Call
 					</a>
 				</li>
