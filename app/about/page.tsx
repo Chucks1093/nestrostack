@@ -30,7 +30,7 @@ export default function AboutPage() {
           <div className="relative overflow-hidden h-full bg-blue-bright rounded-br-[3rem] max-lg:min-h-[240px] max-lg:rounded-none">
             <Image src="/images/hero.jpg" alt="Nestro Stack about" fill className="object-cover brightness-75" />
             <div className="absolute inset-0 z-[5] pointer-events-none" style={{ backgroundImage: "url('/images/noise.png')", backgroundRepeat: "repeat" }} />
-            <div className="absolute inset-0 z-10 flex items-center justify-center">
+            <div className="absolute inset-0 z-10 flex items-center justify-center hidden">
               <img src="/icons/workflow.svg" alt="" width={120} height={120} className="opacity-90" />
             </div>
           </div>

@@ -244,7 +244,7 @@ export default function Home() {
 							</Link>
 						</div>
 					</div>
-					<div className='relative overflow-hidden h-full bg-blue-bright  max-lg:min-h-[240px] max-lg:rounded-none'>
+					<div className='relative overflow-hidden h-full bg-blue-bright rounded-2xl max-lg:min-h-[240px] max-lg:rounded-xl'>
 						<Image
 							src='/images/image.png'
 							alt='Nestro Stack'
@@ -266,7 +266,7 @@ export default function Home() {
 							}}
 						/>
 
-						<div className='absolute inset-0 z-10 flex items-center justify-center'>
+						<div className='absolute inset-0 z-10 flex items-center justify-center hidden'>
 							<Image
 								src='/icons/workflow.svg'
 								alt=''

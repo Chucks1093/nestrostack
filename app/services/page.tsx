@@ -33,10 +33,10 @@ export default function ServicesPage() {
               </a>
             </div>
           </div>
-          <div className="relative overflow-hidden h-full bg-blue-bright rounded-br-[3rem] max-lg:min-h-[260px] max-lg:rounded-none">
+          <div className="relative overflow-hidden h-full bg-blue-bright rounded-2xl max-lg:min-h-[260px] max-lg:rounded-xl">
             <Image src="/images/hero.jpg" alt="Nestro Stack services" fill className="object-cover brightness-75" />
             <div className="absolute inset-0 z-[5] pointer-events-none" style={{ backgroundImage: "url('/images/noise.png')", backgroundRepeat: "repeat" }} />
-            <div className="absolute inset-0 z-10 flex items-center justify-center">
+            <div className="absolute inset-0 z-10 flex items-center justify-center hidden">
               <img src="/icons/workflow.svg" alt="" width={120} height={120} className="opacity-90" />
             </div>
           </div>
