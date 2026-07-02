@@ -47,7 +47,7 @@ export default function ServicesPage() {
       <section className="py-24 px-10 max-md:py-16 max-md:px-6 max-sm:px-4">
         <div className="max-w-[1120px] mx-auto">
           <Reveal>
-            <p className="flex items-center gap-[0.8rem] text-blue text-[0.72rem] font-medium tracking-[0.2em] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-px before:bg-blue before:shrink-0">
+            <p className="text-blue text-[0.92rem] font-medium tracking-[0.2em] uppercase mb-4">
               Our Services
             </p>
             <h2 className="font-display text-[clamp(1.75rem,4.5vw,3.8rem)] font-semibold leading-[1.1]">
@@ -61,7 +61,7 @@ export default function ServicesPage() {
       {/* ── TOOLS MARQUEE ── */}
       <div className="bg-surface border-t border-b border-line py-20 overflow-hidden">
         <Reveal className="max-w-[1120px] mx-auto px-10 mb-12 max-sm:px-6">
-          <p className="flex items-center gap-[0.8rem] text-blue text-[0.72rem] font-medium tracking-[0.2em] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-px before:bg-blue before:shrink-0">
+          <p className="text-blue text-[0.92rem] font-medium tracking-[0.2em] uppercase mb-4">
             Platforms We Work With
           </p>
           <h2 className="font-display text-[clamp(1.75rem,4.5vw,3.8rem)] font-semibold leading-[1.1] mb-5">
@@ -77,7 +77,7 @@ export default function ServicesPage() {
       {/* ── CTA ── */}
       <section className="text-center py-24 px-10 max-md:py-16 max-md:px-6 max-sm:px-4">
         <div className="max-w-[1120px] mx-auto">
-          <p className="flex justify-center items-center gap-[0.8rem] text-blue text-[0.72rem] font-medium tracking-[0.2em] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-px before:bg-blue after:content-[''] after:block after:w-6 after:h-px after:bg-blue">
+          <p className="text-center text-blue text-[0.92rem] font-medium tracking-[0.2em] uppercase mb-4">
             Start Here
           </p>
           <Reveal>

@@ -12,7 +12,7 @@ const SectionLabel = ({
 	center?: boolean;
 }) => (
 	<p
-		className={`flex items-center gap-[0.8rem] text-blue text-[0.72rem] font-medium tracking-[0.2em] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-px before:bg-blue before:shrink-0 ${center ? "justify-center after:content-[''] after:block after:w-6 after:h-px after:bg-blue" : ""}`}>
+		className={`text-blue text-[0.92rem] font-medium tracking-[0.2em] uppercase mb-4 ${center ? "text-center" : ""}`}>
 		{children}
 	</p>
 );
@@ -290,7 +290,7 @@ export default function Home() {
 					}}
 				/>
 				<div className='max-w-[760px] mx-auto'>
-					<p className="flex justify-center items-center gap-[0.8rem] text-white/85 text-[0.72rem] font-medium tracking-[0.2em] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-px before:bg-white/50 after:content-[''] after:block after:w-6 after:h-px after:bg-white/50">
+					<p className="text-center text-white/85 text-[0.92rem] font-medium tracking-[0.2em] uppercase mb-4">
 						The Problem We Solve
 					</p>
 					<h2 className='font-display text-[clamp(2rem,3.5vw,2.8rem)] font-semibold leading-[1.2] mb-6 text-white'>

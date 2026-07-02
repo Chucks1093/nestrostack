@@ -47,8 +47,6 @@ const ClockIcon = () => (
 	</svg>
 );
 
-const inputCls =
-	"w-full bg-[#f7f9ff] border border-line rounded-lg px-4 py-[0.8rem] text-ink font-body text-[0.93rem] font-light transition-[border-color,box-shadow] duration-200 outline-none appearance-none placeholder:text-ink-dim focus:border-blue focus:shadow-[0_0_0_3px_rgba(26,86,219,0.1)] focus:bg-white";
 
 export default function ContactPage() {
 	return (
@@ -56,7 +54,7 @@ export default function ContactPage() {
 			{/* ── HERO ── */}
 			<div className='bg-blue pt-36 pb-20 px-10 border-b border-white/10 max-md:pt-24 max-md:pb-12 max-md:px-6 max-sm:px-4'>
 				<div className='max-w-[1120px] mx-auto relative z-[2]'>
-					<p className="flex justify-center items-center gap-[0.8rem] text-white/70 text-[0.72rem] font-medium tracking-[0.2em] uppercase mb-4 before:content-[''] before:block before:w-6 before:h-px before:bg-white/40 after:content-[''] after:block after:w-6 after:h-px after:bg-white/40">
+					<p className="text-center text-white/70 text-[0.92rem] font-medium tracking-[0.2em] uppercase mb-4">
 						Let us Talk
 					</p>
 					<h1 className='font-display text-[clamp(2rem,6vw,3.2rem)] font-semibold leading-[1.1] text-white max-w-[680px] mx-auto mb-5 text-center'>
@@ -75,119 +73,15 @@ export default function ContactPage() {
 				className='border-t border-line px-10 pt-20 pb-28 max-md:px-6 max-md:pt-12 max-md:pb-20'
 				style={{ backgroundColor: "#f5f5f5" }}>
 				<div className='grid grid-cols-[1.5fr_1fr] gap-12 max-w-[1120px] mx-auto items-start max-md:grid-cols-1'>
-					{/* Left: form */}
-					<Reveal className='bg-white rounded-2xl p-12 shadow-[0_8px_40px_rgba(0,0,0,0.08)] max-md:p-8 max-sm:p-6'>
-						<div className='mb-8'>
-							<h3 className='font-display text-[1.8rem] font-semibold mb-[0.4rem]'>
-								Book Your Free Clarity Call
-							</h3>
-							<p className='text-[0.88rem] text-ink-muted'>
-								Fill this out and we will confirm your time within 24
-								hours.
-							</p>
-						</div>
-
-						<div className='grid grid-cols-2 gap-5 mb-5 max-md:grid-cols-1'>
-							<div>
-								<label className='block text-[0.74rem] tracking-[0.07em] uppercase text-ink-muted mb-[0.45rem]'>
-									First Name
-								</label>
-								<input
-									type='text'
-									placeholder='Your first name'
-									className={inputCls}
-								/>
-							</div>
-							<div>
-								<label className='block text-[0.74rem] tracking-[0.07em] uppercase text-ink-muted mb-[0.45rem]'>
-									Last Name
-								</label>
-								<input
-									type='text'
-									placeholder='Your last name'
-									className={inputCls}
-								/>
-							</div>
-						</div>
-
-						<div className='mb-5'>
-							<label className='block text-[0.74rem] tracking-[0.07em] uppercase text-ink-muted mb-[0.45rem]'>
-								Email Address
-							</label>
-							<input
-								type='email'
-								placeholder='your@email.com'
-								className={inputCls}
-							/>
-						</div>
-
-						<div className='mb-5'>
-							<label className='block text-[0.74rem] tracking-[0.07em] uppercase text-ink-muted mb-[0.45rem]'>
-								Phone Number
-							</label>
-							<input
-								type='tel'
-								placeholder='+1 (000) 000-0000'
-								className={inputCls}
-							/>
-						</div>
-
-						<div className='mb-5'>
-							<label className='block text-[0.74rem] tracking-[0.07em] uppercase text-ink-muted mb-[0.45rem]'>
-								What best describes you?
-							</label>
-							<select className={inputCls}>
-								<option
-									value=''
-									disabled>
-									Select your role
-								</option>
-								<option>Coach or Consultant</option>
-								<option>Real Estate Agent</option>
-								<option>Entrepreneur or Founder</option>
-								<option>Small Business Owner</option>
-								<option>Other</option>
-							</select>
-						</div>
-
-						<div className='mb-5'>
-							<label className='block text-[0.74rem] tracking-[0.07em] uppercase text-ink-muted mb-[0.45rem]'>
-								Your biggest challenge right now?
-							</label>
-							<select className={inputCls}>
-								<option
-									value=''
-									disabled>
-									Select your main challenge
-								</option>
-								<option>Leads slipping through the cracks</option>
-								<option>Tools that do not work together</option>
-								<option>
-									No time, stuck doing everything manually
-								</option>
-								<option>Inconsistent marketing and social media</option>
-								<option>Cannot scale, everything depends on me</option>
-								<option>Not sure where to start</option>
-							</select>
-						</div>
-
-						<div className='mb-5'>
-							<label className='block text-[0.74rem] tracking-[0.07em] uppercase text-ink-muted mb-[0.45rem]'>
-								Tell us a little more (optional)
-							</label>
-							<textarea
-								placeholder='What would feel like a win for you in 90 days?'
-								className={`${inputCls} resize-y min-h-[110px]`}
-							/>
-						</div>
-
-						<a
-							href={BOOKING_URL}
-							target='_blank'
-							rel='noopener noreferrer'
-							className='block w-full bg-blue-bright text-white text-center py-4 px-8 rounded-lg font-body font-medium text-[1rem] no-underline mt-2 transition-[background,transform] duration-[250ms] hover:bg-blue hover:-translate-y-0.5'>
-							Book My Free Clarity Call
-						</a>
+					{/* Left: GHL booking embed */}
+					<Reveal className='bg-white rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.08)]'>
+						<iframe
+							src={BOOKING_URL}
+							className='w-full border-0'
+							style={{ height: '780px' }}
+							loading='lazy'
+							title='Book a Free Clarity Call'
+						/>
 					</Reveal>
 
 					{/* Right: info + clarity box */}
