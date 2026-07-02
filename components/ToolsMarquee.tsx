@@ -1,9 +1,9 @@
-'use client'
-import Image from 'next/image'
-import { TOOLS } from '@/lib/data'
+"use client";
+import Image from "next/image";
+import { TOOLS } from "@/lib/data";
 
 export default function ToolsMarquee() {
-  const doubled = [...TOOLS, ...TOOLS]
+  const doubled = [...TOOLS, ...TOOLS];
 
   return (
     <div className="marquee-fade">
@@ -11,7 +11,7 @@ export default function ToolsMarquee() {
         {doubled.map((tool, i) => (
           <div
             key={i}
-            className="flex items-center gap-[1.1rem] bg-blue-glow border border-line rounded-full px-[2.2rem] py-[1.1rem] whitespace-nowrap shrink-0 transition-all duration-200 hover:border-line-blue hover:bg-[rgba(26,86,219,0.08)] hover:-translate-y-0.5 group"
+            className="flex items-center gap-[1.1rem] bg-blue-glow border border-line rounded-full px-[2.2rem] py-[.8rem] whitespace-nowrap shrink-0 transition-all duration-200 hover:border-line-blue hover:bg-[rgba(26,86,219,0.08)] hover:-translate-y-0.5 group"
           >
             <Image
               src={tool.logo}
@@ -29,5 +29,5 @@ export default function ToolsMarquee() {
         ))}
       </div>
     </div>
-  )
+  );
 }
