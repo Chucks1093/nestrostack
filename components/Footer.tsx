@@ -63,7 +63,7 @@ export default function Footer() {
               href="/"
               className="font-display text-[1.8rem] font-semibold text-ink block mb-3 tracking-[-0.01em] no-underline"
             >
-              Nestro<span className="text-blue">Stack</span>
+              Nestro <span className="text-blue">Stack</span>
             </Link>
             <p className="text-[0.88rem] text-ink-muted max-w-[260px] leading-[1.78]">
               We build the business behind your business.

@@ -3,12 +3,6 @@ import Reveal from '@/components/Reveal'
 import Footer from '@/components/Footer'
 import { BOOKING_URL } from '@/lib/data'
 
-const values = [
-  { title: 'Clarity First', body: 'We never start building until you have complete clarity on what is being built and why.', delay: 'd1' as const },
-  { title: 'We Are in This Together', body: 'We work alongside you, not above you. Your wins are our wins.', delay: 'd2' as const },
-  { title: 'Outcomes Over Deliverables', body: 'We are here to make sure what we build actually changes how you operate.', delay: 'd1' as const },
-  { title: 'No Overwhelm Allowed', body: 'Every system we build is designed to simplify, not complicate. If it is confusing, it is not done yet.', delay: 'd2' as const },
-]
 
 export default function AboutPage() {
   return (
@@ -56,28 +50,6 @@ export default function AboutPage() {
               A brilliant coach losing leads because her CRM is not set up — a real estate agent missing follow-ups because everything lives in his head — an entrepreneur who cannot take a day off because the business falls apart without her — none of these are people-problems — they are systems problems — systems can be fixed — and that is exactly what we do — we stay until it works.
             </p>
           </Reveal>
-        </div>
-      </section>
-
-      {/* ── VALUES ── */}
-      <section className="bg-surface border-t border-b border-line py-24 px-10 max-md:py-16 max-md:px-6 max-sm:px-4">
-        <div className="max-w-[1120px] mx-auto">
-          <Reveal>
-            <p className="text-blue text-[0.92rem] font-medium tracking-[0.2em] uppercase mb-4">
-              What We Stand For
-            </p>
-            <h2 className="font-display text-[clamp(1.75rem,4.5vw,3.8rem)] font-semibold leading-[1.1]">
-              The values that guide <em className="text-blue">everything we build.</em>
-            </h2>
-          </Reveal>
-          <div className="grid gap-8 mt-14 [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))]">
-            {values.map(({ title, body, delay }) => (
-              <Reveal key={title} delay={delay} className="pt-8 border-t-2 border-line-blue">
-                <h3 className="font-display text-[1.35rem] font-semibold mb-3">{title}</h3>
-                <p className="text-[0.91rem] text-ink-muted leading-[1.78]">{body}</p>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 

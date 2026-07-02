@@ -86,12 +86,12 @@ export const SERVICES = [
 ]
 
 export const TOOLS = [
-  { name: "GoHighLevel",      logo: "/icons/tools/gohighlevel.svg" },
+  { name: "GoHighLevel",      logo: "/icons/tools/gohighlevel.svg",      iconOnly: true },
   { name: "HubSpot",          logo: "/icons/tools/hubspot.svg" },
   { name: "Monday.com",       logo: "/icons/tools/monday.svg" },
   { name: "Zapier",           logo: "/icons/tools/zapier.svg" },
   { name: "Make",             logo: "/icons/tools/make.svg" },
-  { name: "ActiveCampaign",   logo: "/icons/tools/activecampaign.svg" },
+  { name: "ActiveCampaign",   logo: "/icons/tools/activecampaign.svg",   iconOnly: true },
   { name: "Calendly",         logo: "/icons/tools/calendly.svg" },
   { name: "Stripe",           logo: "/icons/tools/stripe.svg" },
   { name: "Mailchimp",        logo: "/icons/tools/mailchimp.svg" },
