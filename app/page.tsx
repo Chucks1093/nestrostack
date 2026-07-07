@@ -301,17 +301,10 @@ export default function Home() {
          <Reveal className="grid grid-cols-2 border-t border-b border-line max-lg:grid-cols-1">
             <div className="relative min-h-[480px] max-lg:min-h-[220px] max-sm:min-h-[180px]">
                <Image
-                  src="/images/approach.jpg"
+                  src="/images/process-img.jpeg"
                   alt="Our approach"
                   fill
                   className="object-cover"
-               />
-               <div
-                  className="absolute inset-0 z-[5] pointer-events-none"
-                  style={{
-                     backgroundImage: "url('/images/noise.png')",
-                     backgroundRepeat: "repeat",
-                  }}
                />
             </div>
             <div className="bg-surface px-[4.5rem] py-20 flex flex-col justify-center max-lg:px-8 max-lg:py-12 max-sm:px-6 max-sm:py-10">
