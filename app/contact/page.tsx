@@ -153,7 +153,7 @@ export default function ContactPage() {
 									"We listen to where you are and what is not working",
 									"We identify the 1 to 2 systems that would make the biggest difference",
 									"We tell you exactly what we would build and why",
-									"You leave with clarity — whether you work with us or not",
+									"You leave with clarity, whether you work with us or not",
 								].map((item) => (
 									<div
 										key={item}
