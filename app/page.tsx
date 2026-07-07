@@ -221,22 +221,10 @@ export default function Home() {
                      src="/images/image.png"
                      alt="Nestro Stack"
                      fill
-                     className="object-cover brightness-90 object-top"
+                     className="object-cover brightness-95 object-top"
                   />
-                  <div
-                     className="absolute inset-0 z-[5] pointer-events-none"
-                     style={{
-                        backgroundImage: "url('/images/noise.png')",
-                        backgroundRepeat: "repeat",
-                     }}
-                  />
-                  <div
-                     className="absolute inset-0 z-[5] pointer-events-none"
-                     style={{
-                        backgroundImage: "url('/images/noise.png')",
-                        backgroundRepeat: "repeat",
-                     }}
-                  />
+                  <div className="absolute inset-0 z-[5] pointer-events-none hidden" />
+                  <div className="absolute inset-0 z-[5] pointer-events-none hidden" />
 
                   <div className="absolute inset-0 z-10 flex items-center justify-center hidden">
                      <Image
@@ -253,14 +241,7 @@ export default function Home() {
 
          {/* ── PROBLEM ── */}
          <Reveal className="bg-blue-bright text-center py-20 px-10 mt-8 rounded-[2rem] mx-8 max-md:mx-4 max-md:rounded-[1.2rem] max-md:py-14 max-md:px-6 max-sm:mx-3 relative">
-            {/* Noise texture overlay */}
-            <div
-               className="absolute inset-0 pointer-events-none z-[1]"
-               style={{
-                  backgroundImage: "url('/images/noise.png')",
-                  backgroundRepeat: "repeat",
-               }}
-            />
+            <div className="absolute inset-0 pointer-events-none z-[1] hidden" />
             <div className="max-w-[730px] mx-auto">
                <p className="text-center text-white/85 text-[0.92rem] font-medium tracking-[0.2em] uppercase mb-4">
                   The Problem We Solve
@@ -279,7 +260,7 @@ export default function Home() {
                   spreadsheets, manual follow-ups, forgotten leads, inconsistent
                   marketing, and disconnected tools. More effort isn't the
                   answer. A better system is. At Nestro Stack, we replace
-                  operational chaos with systems that work—even when you're not.
+                  operational chaos with systems that work, even when you're not.
                </p>
                <Link
                   href="/contact"

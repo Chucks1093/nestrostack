@@ -11,7 +11,7 @@ export default function AboutPage() {
       <div className="min-h-screen relative overflow-hidden">
         <div className="grid grid-cols-2 min-h-screen max-lg:grid-cols-1 max-lg:min-h-[auto]">
           <div className="flex flex-col justify-center pr-16 pl-10 pt-[10rem] pb-20 max-lg:px-10 max-lg:pt-32 max-lg:pb-12 max-sm:px-6 max-sm:pb-10">
-            <p className="flex items-center gap-[0.8rem] text-blue text-[0.75rem] font-medium tracking-[0.18em] uppercase mb-6 opacity-0 [animation:fadeUp_0.8s_ease_forwards_0.2s] before:content-[''] before:block before:w-7 before:h-px before:bg-blue">
+            <p className="text-blue text-[0.92rem] font-medium tracking-[0.08em] uppercase mb-6 opacity-0 [animation:fadeUp_0.8s_ease_forwards_0.2s]">
               Our Story
             </p>
             <h1 className="font-display text-[clamp(2rem,4.5vw,3.8rem)] font-semibold leading-[1.1] mb-5 opacity-0 [animation:fadeUp_0.9s_ease_forwards_0.4s]">
@@ -22,8 +22,8 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="relative overflow-hidden h-full bg-blue-bright rounded-2xl max-lg:min-h-[240px] max-lg:rounded-xl">
-            <Image src="/images/hero.jpg" alt="Nestro Stack about" fill className="object-cover brightness-75" />
-            <div className="absolute inset-0 z-[5] pointer-events-none" style={{ backgroundImage: "url('/images/noise.png')", backgroundRepeat: "repeat" }} />
+            <Image src="/images/hero.jpg" alt="Nestro Stack about" fill className="object-cover brightness-95" />
+            <div className="absolute inset-0 z-[5] pointer-events-none hidden" />
             <div className="absolute inset-0 z-10 flex items-center justify-center hidden">
               <img src="/icons/workflow.svg" alt="" width={120} height={120} className="opacity-90" />
             </div>
