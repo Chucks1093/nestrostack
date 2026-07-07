@@ -129,7 +129,7 @@ export default function Footer() {
               </li>
               <li>
                 <span className="text-ink-muted text-[0.88rem]">
-                  123 Business Ave, Suite 100
+                  2 Biscayne Blvd, Miami, FL 33131, United States
                 </span>
               </li>
             </ul>
