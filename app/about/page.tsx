@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Reveal from '@/components/Reveal'
 import Footer from '@/components/Footer'
-import { BOOKING_URL } from '@/lib/data'
+import Link from 'next/link'
 
 
 export default function AboutPage() {
@@ -70,9 +70,9 @@ export default function AboutPage() {
             </p>
           </Reveal>
           <Reveal delay="d2">
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="bg-blue-bright text-white py-4 px-10 rounded-[5px] no-underline font-medium text-[1rem] transition-[background,transform] duration-[250ms] inline-flex items-center gap-[0.55rem] hover:bg-blue hover:-translate-y-0.5">
+            <Link href="/contact" className="bg-blue-bright text-white py-4 px-10 rounded-[5px] no-underline font-medium text-[1rem] transition-[background,transform] duration-[250ms] inline-flex items-center gap-[0.55rem] hover:bg-blue hover:-translate-y-0.5">
               Book Your Free Clarity Call
-            </a>
+            </Link>
           </Reveal>
         </div>
       </section>

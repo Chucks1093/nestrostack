@@ -3,7 +3,7 @@ import Reveal from '@/components/Reveal'
 import Footer from '@/components/Footer'
 import ServiceCards from '@/components/ServiceCards'
 import ToolsMarquee from '@/components/ToolsMarquee'
-import { BOOKING_URL } from '@/lib/data'
+import Link from 'next/link'
 
 const CalIcon = () => (
   <svg className="w-[18px] h-[18px] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -22,15 +22,15 @@ export default function ServicesPage() {
               What We Build
             </p>
             <h1 className="font-display text-[clamp(2rem,4.5vw,3.8rem)] font-semibold leading-[1.1] mb-5 opacity-0 [animation:fadeUp_0.9s_ease_forwards_0.4s]">
-              Systems that let your <em className="text-blue">business breathe.</em>
+              Systems that let your business <em className="text-blue">breathe.</em>
             </h1>
             <p className="text-[1rem] text-ink-muted leading-[1.88] mb-7 max-w-[500px] opacity-0 [animation:fadeUp_0.9s_ease_forwards_0.6s] max-sm:text-[0.93rem] max-sm:mb-5">
-              No fluff, no templates. Every system is purpose-built around your specific business, your clients, and your goals.
+              No templates. No unnecessary complexity. Just thoughtfully designed systems, purpose built around your business, your clients, and your goals, so growth feels organized, not overwhelming.
             </p>
             <div className="flex gap-3 flex-wrap opacity-0 [animation:fadeUp_0.9s_ease_forwards_0.8s] max-sm:flex-col">
-              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="bg-blue-bright text-white py-[0.9rem] px-8 rounded-[5px] no-underline font-medium text-[0.95rem] transition-[background,transform] duration-[250ms] inline-flex items-center justify-center gap-[0.55rem] hover:bg-blue hover:-translate-y-0.5">
+              <Link href="/contact" className="bg-blue-bright text-white py-[0.9rem] px-8 rounded-[5px] no-underline font-medium text-[0.95rem] transition-[background,transform] duration-[250ms] inline-flex items-center justify-center gap-[0.55rem] hover:bg-blue hover:-translate-y-0.5">
                 <CalIcon />Book a Free Clarity Call
-              </a>
+              </Link>
             </div>
           </div>
           <div className="relative overflow-hidden h-full bg-blue-bright rounded-2xl max-lg:min-h-[260px] max-lg:rounded-xl">
@@ -50,9 +50,12 @@ export default function ServicesPage() {
             <p className="text-blue text-[0.92rem] font-medium tracking-[0.2em] uppercase mb-4">
               Our Services
             </p>
-            <h2 className="font-display text-[clamp(1.75rem,4.5vw,3.8rem)] font-semibold leading-[1.1]">
-              Six ways we transform <em className="text-blue">how your business operates.</em>
+            <h2 className="font-display text-[clamp(1.75rem,4.5vw,3.8rem)] font-semibold leading-[1.1] mb-5">
+              Six ways we build businesses that don't rely on <em className="text-blue">constant firefighting.</em>
             </h2>
+            <p className="text-[1rem] text-ink-muted max-w-[780px] leading-[1.88]">
+              Your business shouldn't depend on memory, manual work, or endless follow-ups. Every service we offer removes a bottleneck that slows your growth, so your business becomes easier to run and easier to scale.
+            </p>
           </Reveal>
           <ServiceCards />
         </div>
@@ -91,9 +94,9 @@ export default function ServicesPage() {
             </p>
           </Reveal>
           <Reveal delay="d2">
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="bg-blue-bright text-white py-4 px-10 rounded-[5px] no-underline font-medium text-[1rem] transition-[background,transform] duration-[250ms] inline-flex items-center gap-[0.55rem] hover:bg-blue hover:-translate-y-0.5">
+            <Link href="/contact" className="bg-blue-bright text-white py-4 px-10 rounded-[5px] no-underline font-medium text-[1rem] transition-[background,transform] duration-[250ms] inline-flex items-center gap-[0.55rem] hover:bg-blue hover:-translate-y-0.5">
               Book Your Free Clarity Call
-            </a>
+            </Link>
           </Reveal>
         </div>
       </section>

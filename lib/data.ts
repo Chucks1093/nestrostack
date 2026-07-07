@@ -4,7 +4,7 @@ export const SERVICES = [
     icon: "Database",
     title: "CRM Setup and Optimization",
     tag: "GoHighLevel · HubSpot · Monday",
-    desc: "Your CRM should be the brain of your business, remembering every lead, tracking every conversation, and triggering the right follow-up at the right time. Most CRMs sit unused because they were never set up right. We change that.",
+    desc: "Your business should remember everything, even when you don't. Leads shouldn't disappear. Customers shouldn't be forgotten. Your CRM should become the central operating system of your business, automatically tracking conversations, follow-ups, deals, and customer relationships.",
     outcomes: [
       "Full CRM configuration and data migration",
       "Custom pipeline stages for your sales process",
@@ -16,15 +16,15 @@ export const SERVICES = [
   {
     num: "02",
     icon: "GitMerge",
-    title: "Workflow and Process Automation",
+    title: "Workflow & Process Automation",
     tag: "Zapier · Make · Native APIs",
-    desc: "Every manual handoff in your business is a failure point. Every tool that does not talk to another is wasted time. We connect your entire stack so information flows automatically, no more copy-pasting, no more cracks.",
+    desc: "Remove repetitive work. Keep the important work. Every manual task costs time. Every copy-and-paste creates room for mistakes. We connect your tools so information flows automatically from one system to another.",
     outcomes: [
-      "Full tech stack audit and integration mapping",
-      "Automated data flows between all your tools",
-      "Client onboarding automation from inquiry to kickoff",
-      "Internal task and notification workflows",
-      "Error monitoring and system health checks",
+      "Business process mapping and workflow design",
+      "Zapier & Make automations and API integrations",
+      "Client onboarding automation",
+      "Internal notifications and approval workflows",
+      "Error monitoring and automation documentation",
     ],
   },
   {
@@ -32,7 +32,7 @@ export const SERVICES = [
     icon: "Target",
     title: "Lead Generation Systems",
     tag: "Pipeline · Follow-Up · Nurture",
-    desc: "A lead generation system that works while you sleep. We build the entire end-to-end pipeline from how a prospect first finds you to how they become a paying client, and automate every touchpoint.",
+    desc: "Build a pipeline that never stops working. Finding customers shouldn't depend on luck or posting every day. We build lead generation systems that attract, qualify, nurture, and convert prospects automatically.",
     outcomes: [
       "Lead capture forms, landing pages, and opt-ins",
       "Automated nurture sequences via email and SMS",
@@ -44,9 +44,9 @@ export const SERVICES = [
   {
     num: "04",
     icon: "TrendingUp",
-    title: "Sales Funnel Design and Optimization",
+    title: "Sales Funnel Design & Optimization",
     tag: "Funnels · Conversion · Revenue",
-    desc: "Most businesses lose clients not because their offer is wrong but because the path to yes is unclear. We design and build funnels that guide your prospects from awareness to decision with confidence.",
+    desc: "Turn interest into revenue. A great offer deserves a buying journey that feels simple. We design funnels that remove friction, answer objections, and guide prospects confidently toward becoming paying clients.",
     outcomes: [
       "Funnel strategy and customer journey mapping",
       "Landing page and sales page design",
@@ -58,15 +58,15 @@ export const SERVICES = [
   {
     num: "05",
     icon: "Megaphone",
-    title: "Social Media and Marketing Execution",
+    title: "Social Media & Marketing Execution",
     tag: "Strategy · Content · Growth",
-    desc: "Consistent marketing should not require you to live on your phone. We build your strategy, create your content calendar, and execute campaigns that generate predictable results.",
+    desc: "Stay visible without living on your phone. Marketing should build trust before the sales conversation begins. We create and execute marketing systems that consistently keep your business in front of the right audience.",
     outcomes: [
-      "Social media strategy and content planning",
-      "Content creation, scheduling, and publishing",
-      "Email marketing campaigns and newsletters",
-      "Paid ad strategy and campaign management",
-      "Monthly analytics reporting and review",
+      "Content strategy and content calendar",
+      "Graphic design and copywriting",
+      "Social media management and paid advertising",
+      "Email campaigns",
+      "Performance reporting and continuous optimization",
     ],
   },
   {
