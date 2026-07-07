@@ -55,15 +55,13 @@ export default function ContactPage() {
 			<div className='bg-blue pt-36 pb-20 px-10 border-b border-white/10 max-md:pt-24 max-md:pb-12 max-md:px-6 max-sm:px-4'>
 				<div className='max-w-[1120px] mx-auto relative z-[2]'>
 					<p className="text-center text-white/70 text-[0.92rem] font-medium tracking-[0.2em] uppercase mb-4">
-						Let us Talk
+						Let&apos;s Talk
 					</p>
 					<h1 className='font-display text-[clamp(2rem,6vw,3.2rem)] font-semibold leading-[1.1] text-white max-w-[680px] mx-auto mb-5 text-center'>
-						Your clarity call starts{" "}
-						<em className='text-white/70'>right here.</em>
+						Your next stage of growth starts with a single conversation.
 					</h1>
-					<p className='text-[1rem] text-white/60 max-w-[500px] mx-auto leading-[1.88] text-center'>
-						No pitch. No pressure. Just a real 30-minute conversation
-						about your business, where it is, and where you want it to go.
+					<p className='text-[1rem] text-white/60 max-w-[480px] mx-auto leading-[1.88] text-center'>
+						This is a focused strategy session designed to understand your business, uncover operational bottlenecks, and identify the systems that will help you save time, improve efficiency, and scale with confidence.
 					</p>
 				</div>
 			</div>
@@ -89,8 +87,8 @@ export default function ContactPage() {
 						delay='d1'
 						className='flex flex-col gap-6 pt-2'>
 						<h2 className='font-display text-[2rem] font-semibold leading-[1.2] text-ink'>
-							We are genuinely{" "}
-							<em className='text-blue'>glad you are here.</em>
+							Let&apos;s build something that{" "}
+							<em className='text-blue'>works.</em>
 						</h2>
 						{[
 							{
@@ -115,15 +113,6 @@ export default function ContactPage() {
 									</a>
 								),
 							},
-							{
-								icon: <ClockIcon />,
-								label: "Response Time",
-								content: (
-									<span className='text-[0.93rem] text-ink'>
-										Within 24 hours
-									</span>
-								),
-							},
 						].map(({ icon, label, content }) => (
 							<div
 								key={label}
@@ -143,17 +132,18 @@ export default function ContactPage() {
 						{/* Clarity call box */}
 						<div className='bg-white border border-line rounded-2xl p-7 mt-2'>
 							<h3 className='font-display text-[1.3rem] font-semibold text-ink mb-1'>
-								What happens on the Clarity Call?
+								What Happens During Your Clarity Call?
 							</h3>
 							<p className='text-[0.83rem] text-ink-muted mb-5 leading-[1.7]'>
-								A focused 30 minutes where we map your world together.
+								A focused strategy session designed to understand your business and identify your biggest opportunities.
 							</p>
 							<div className='flex flex-col gap-3'>
 								{[
-									"We listen to where you are and what is not working",
-									"We identify the 1 to 2 systems that would make the biggest difference",
-									"We tell you exactly what we would build and why",
-									"You leave with clarity, whether you work with us or not",
+									"We learn how your business currently operates.",
+									"We identify the bottlenecks slowing your growth.",
+									"We recommend the highest impact systems for your business.",
+									"We outline a practical roadmap for implementation.",
+									"You leave with clear next steps, whether we work together or not.",
 								].map((item) => (
 									<div
 										key={item}
