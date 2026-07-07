@@ -218,7 +218,7 @@ export default function Home() {
                </div>
                <div className="relative overflow-hidden h-full bg-blue-bright rounded-2xl max-lg:min-h-[240px] max-lg:rounded-xl">
                   <Image
-                     src="/images/image.png"
+                     src="/images/hero.jpg"
                      alt="Nestro Stack"
                      fill
                      className="object-cover brightness-95 object-top"
