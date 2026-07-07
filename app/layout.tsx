@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Outfit } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
 import ChatbaseWidget from '@/components/ChatbaseWidget'
+import { cn } from "@/lib/utils";
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],

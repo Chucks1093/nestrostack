@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import Footer from "@/components/Footer";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 
 const SectionLabel = ({
    children,
@@ -49,14 +50,6 @@ const ArrowIcon = () => (
    </svg>
 );
 
-const StarIcon = () => (
-   <svg
-      viewBox="0 0 24 24"
-      className="w-[14px] h-[14px] fill-blue-bright text-blue-bright"
-   >
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-   </svg>
-);
 
 const serviceCards = [
    {
@@ -154,29 +147,6 @@ const steps = [
    },
 ];
 
-const testimonials = [
-   {
-      initials: "SM",
-      name: "Sarah M.",
-      role: "Business Coach",
-      quote: "For the first time in two years, I took a full weekend off and nothing broke. That alone was worth everything.",
-      delay: "d1" as const,
-   },
-   {
-      initials: "JT",
-      name: "James T.",
-      role: "Real Estate Agent",
-      quote: "They did not just set up my CRM. They gave me my sanity back. I finally feel like I am running a business instead of just surviving one.",
-      delay: "d2" as const,
-   },
-   {
-      initials: "DR",
-      name: "Dana R.",
-      role: "Entrepreneur",
-      quote: "I came in overwhelmed and left with a system I actually understood. The clarity alone was worth the investment.",
-      delay: "d3" as const,
-   },
-];
 
 export default function Home() {
    return (
@@ -376,8 +346,8 @@ export default function Home() {
          </Reveal>
 
          {/* ── TESTIMONIALS ── */}
-         <section className="bg-surface border-t border-line py-24 px-10 max-md:py-16 max-md:px-6 max-sm:px-4">
-            <div className="max-w-[1120px] mx-auto">
+         <section className="bg-surface border-t border-line py-24 max-md:py-16">
+            <div className="max-w-[1120px] mx-auto px-10 max-md:px-6 max-sm:px-4">
                <Reveal>
                   <SectionLabel>What It Feels Like After</SectionLabel>
                   <h2 className="font-display text-[clamp(1.75rem,4.5vw,3.8rem)] font-semibold leading-[1.1]">
@@ -386,40 +356,8 @@ export default function Home() {
                      our best clients.
                   </h2>
                </Reveal>
-               <div className="grid gap-6 mt-16 [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">
-                  {testimonials.map(
-                     ({ initials, name, role, quote, delay }) => (
-                        <Reveal
-                           key={name}
-                           delay={delay}
-                           className="bg-white border border-line rounded-[14px] py-[2.2rem] px-8 flex flex-col hover:border-line-blue transition-colors duration-[250ms]"
-                        >
-                           <div className="flex gap-[3px] mb-4">
-                              {Array.from({ length: 5 }).map((_, i) => (
-                                 <StarIcon key={i} />
-                              ))}
-                           </div>
-                           <blockquote className="text-[0.96rem] leading-[1.78] text-ink-muted mb-6 flex-1">
-                              {quote}
-                           </blockquote>
-                           <div className="flex items-center gap-[0.9rem] mt-auto pt-5 border-t border-line">
-                              <div className="w-[38px] h-[38px] rounded-full bg-blue-glow border border-line-blue flex items-center justify-center font-semibold text-[0.8rem] shrink-0 text-blue">
-                                 {initials}
-                              </div>
-                              <div>
-                                 <div className="font-medium text-[0.88rem]">
-                                    {name}
-                                 </div>
-                                 <div className="text-[0.76rem] text-ink-muted">
-                                    {role}
-                                 </div>
-                              </div>
-                           </div>
-                        </Reveal>
-                     ),
-                  )}
-               </div>
             </div>
+            <TestimonialsCarousel />
          </section>
 
          {/* ── CTA ── */}

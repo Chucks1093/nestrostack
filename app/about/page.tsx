@@ -1,57 +1,47 @@
 import Image from 'next/image'
+import { NotebookText } from 'lucide-react'
 import Reveal from '@/components/Reveal'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
+import StatsSection from '@/components/StatsSection'
+import ReviewsSection from '@/components/ReviewsSection'
 
 
 export default function AboutPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <div className="min-h-screen relative overflow-hidden">
-        <div className="grid grid-cols-2 min-h-screen max-lg:grid-cols-1 max-lg:min-h-[auto]">
-          <div className="flex flex-col justify-center pr-16 pl-10 pt-[10rem] pb-20 max-lg:px-10 max-lg:pt-32 max-lg:pb-12 max-sm:px-6 max-sm:pb-10">
-            <p className="text-blue text-[0.92rem] font-medium tracking-[0.08em] uppercase mb-6 opacity-0 [animation:fadeUp_0.8s_ease_forwards_0.2s]">
-              Our Story
-            </p>
-            <h1 className="font-display text-[clamp(2rem,4.5vw,3.8rem)] font-semibold leading-[1.1] mb-5 opacity-0 [animation:fadeUp_0.9s_ease_forwards_0.4s]">
-              We exist because <em className="text-blue">good businesses</em> should not fail for lack of systems.
-            </h1>
-            <p className="text-[1rem] text-ink-muted leading-[1.88] max-w-[480px] opacity-0 [animation:fadeUp_0.9s_ease_forwards_0.6s] max-sm:text-[0.93rem]">
-              Nestro Stack was built for business owners who are talented, driven, and doing everything right but still feel like they are barely keeping up.
-            </p>
-          </div>
-          <div className="relative overflow-hidden h-full bg-blue-bright rounded-2xl max-lg:min-h-[240px] max-lg:rounded-xl">
-            <Image src="/images/hero.jpg" alt="Nestro Stack about" fill className="object-cover brightness-95" />
-            <div className="absolute inset-0 z-[5] pointer-events-none hidden" />
-            <div className="absolute inset-0 z-10 flex items-center justify-center hidden">
-              <img src="/icons/workflow.svg" alt="" width={120} height={120} className="opacity-90" />
-            </div>
-          </div>
-        </div>
-      </div>
+      <section className="relative min-h-[60vh] flex items-center justify-center text-center px-10 pt-36 pb-20 overflow-hidden max-md:px-6 max-md:pt-28 max-md:pb-14 max-sm:px-4">
+        {/* Background image */}
+        <Image
+          src="/images/about-bg.jpeg"
+          alt=""
+          fill
+          className="object-cover"
+          priority
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
 
-      {/* ── WHY WE EXIST ── */}
-      <section className="py-24 px-10 text-center border-b border-line max-md:py-16 max-md:px-6 max-sm:px-4">
-        <div className="max-w-[680px] mx-auto">
-          <Reveal>
-            <p className="text-center text-blue text-[0.92rem] font-medium tracking-[0.2em] uppercase mb-4">
-              Why We Exist
-            </p>
-            <h2 className="font-display text-[clamp(1.75rem,4.5vw,3.8rem)] font-semibold leading-[1.1] mb-6">
-              We have seen it<br /><em className="text-blue">too many times.</em>
-            </h2>
-            <p className="text-[1rem] text-ink-muted leading-[1.85] mb-8">
-              Good people, losing business, because of missing systems. That is the only problem we solve.
-            </p>
-          </Reveal>
-          <Reveal delay="d1">
-            <p className="text-[1rem] text-ink-muted leading-[2] max-w-[600px] mx-auto">
-              We have seen a brilliant coach losing leads because her CRM was never set up properly. We have seen a real estate agent missing follow-ups because everything lived in his head. We have seen an entrepreneur who could not take a single day off because the business would fall apart without her. None of these are people problems. They are systems problems. Systems can be fixed. That is exactly what we do. We stay until it works.
-            </p>
-          </Reveal>
+        {/* Content */}
+        <div className="relative z-10 max-w-[680px] mx-auto text-white">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur text-white text-sm border border-white/30 mb-6 opacity-0 [animation:fadeUp_0.8s_ease_forwards_0.2s]">
+            <NotebookText className="w-4 h-4" /> Our Story
+          </div>
+          <h1 className="font-display text-[clamp(2rem,4.5vw,3.8rem)] font-semibold leading-[1.1] mb-5 opacity-0 [animation:fadeUp_0.9s_ease_forwards_0.4s]">
+            We exist because good businesses should not fail for lack of systems.
+          </h1>
+          <p className="text-[1rem] text-white/70 leading-[1.88] opacity-0 max-w-[420px] mx-auto [animation:fadeUp_0.9s_ease_forwards_0.6s] max-sm:text-[0.93rem]">
+            Nestro Stack was built for business owners who are talented, driven, and doing everything right but still feel like they are barely keeping up.
+          </p>
         </div>
       </section>
+
+      {/* ── STATS ── */}
+      <StatsSection />
+
+      {/* ── REVIEWS ── */}
+      <ReviewsSection />
 
       {/* ── CTA ── */}
       <section className="bg-surface border-t border-line text-center py-24 px-10 max-md:py-16 max-md:px-6 max-sm:px-4">

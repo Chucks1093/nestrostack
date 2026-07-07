@@ -88,7 +88,7 @@ export const SERVICES = [
 export const TOOLS = [
   { name: "GoHighLevel",      logo: "/icons/tools/gohighlevel.svg",      iconOnly: true },
   { name: "HubSpot",          logo: "/icons/tools/hubspot.svg" },
-  { name: "Monday.com",       logo: "/icons/tools/monday.svg" },
+  { name: "Monday.com",       logo: "/icons/tools/monday.svg",             iconOnly: true },
   { name: "Zapier",           logo: "/icons/tools/zapier.svg" },
   { name: "Make",             logo: "/icons/tools/make.svg" },
   { name: "ActiveCampaign",   logo: "/icons/tools/activecampaign.svg",   iconOnly: true },
@@ -98,7 +98,7 @@ export const TOOLS = [
   { name: "Notion",           logo: "/icons/tools/notion.svg" },
   { name: "Slack",            logo: "/icons/tools/slack.svg" },
   { name: "Google",           logo: "/icons/tools/googleworkspace.svg" },
-  { name: "Typeform",         logo: "/icons/tools/typeform.svg" },
+  { name: "Typeform",         logo: "/icons/tools/typeform.svg",           iconOnly: true },
   { name: "Airtable",         logo: "/icons/tools/airtable.svg" },
 ]
 
