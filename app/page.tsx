@@ -185,7 +185,7 @@ export default function Home() {
          <div className="min-h-screen relative overflow-hidden ">
             <div className="grid grid-cols-2 min-h-screen max-lg:grid-cols-1 max-lg:min-h-[auto]">
                <div className="flex flex-col justify-center pr-16 pl-10 pt-[10rem] pb-20 max-lg:px-10 max-lg:pt-32 max-lg:pb-12 max-sm:px-6 max-sm:pb-10">
-                  <p className="text-blue text-[0.92rem] font-medium tracking-[0.1em] uppercase mb-5 opacity-0 [animation:fadeUp_0.8s_ease_forwards_0.2s]">
+                  <p className="hidden">
                      Systems for Growth Driven Businesses
                   </p>
                   <h1 className="font-display text-[clamp(2rem,4.5vw,3.8rem)] font-semibold leading-[1.1] mb-5 opacity-0 [animation:fadeUp_0.9s_ease_forwards_0.4s]">
