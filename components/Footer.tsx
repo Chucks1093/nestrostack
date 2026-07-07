@@ -11,7 +11,7 @@ const socials = [
     ),
   },
   {
-    href: "https://linkedin.com/company/nestrostack",
+    href: "https://www.linkedin.com/company/nestro-stack/",
     label: "LinkedIn",
     svg: (
       <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15">

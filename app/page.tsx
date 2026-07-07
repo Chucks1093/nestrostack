@@ -98,7 +98,7 @@ const serviceCards = [
    {
       icon: <path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z" />,
       title: "Sales Funnel Design",
-      desc: "Turn more visitors into paying customers with conversion-focused funnels built for your business.",
+      desc: "Turn more visitors into paying customers with conversion focused funnels built for your business.",
       delay: undefined,
    },
    {
