@@ -21,7 +21,7 @@ export default function AboutPage() {
           priority
         />
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]" />
 
         {/* Content */}
         <div className="relative z-10 max-w-[680px] mx-auto text-white">
