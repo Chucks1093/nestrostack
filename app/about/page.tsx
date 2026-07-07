@@ -18,7 +18,7 @@ export default function AboutPage() {
               We exist because <em className="text-blue">good businesses</em> should not fail for lack of systems.
             </h1>
             <p className="text-[1rem] text-ink-muted leading-[1.88] max-w-[480px] opacity-0 [animation:fadeUp_0.9s_ease_forwards_0.6s] max-sm:text-[0.93rem]">
-              Nestro Stack was built for the business owners who are talented, driven, and doing everything right — but still feel like they are barely keeping up.
+              Nestro Stack was built for business owners who are talented, driven, and doing everything right but still feel like they are barely keeping up.
             </p>
           </div>
           <div className="relative overflow-hidden h-full bg-blue-bright rounded-2xl max-lg:min-h-[240px] max-lg:rounded-xl">
@@ -47,7 +47,7 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay="d1">
             <p className="text-[1rem] text-ink-muted leading-[2] max-w-[600px] mx-auto">
-              A brilliant coach losing leads because her CRM is not set up — a real estate agent missing follow-ups because everything lives in his head — an entrepreneur who cannot take a day off because the business falls apart without her — none of these are people-problems — they are systems problems — systems can be fixed — and that is exactly what we do — we stay until it works.
+              We have seen a brilliant coach losing leads because her CRM was never set up properly. We have seen a real estate agent missing follow-ups because everything lived in his head. We have seen an entrepreneur who could not take a single day off because the business would fall apart without her. None of these are people problems. They are systems problems. Systems can be fixed. That is exactly what we do. We stay until it works.
             </p>
           </Reveal>
         </div>
