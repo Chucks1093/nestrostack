@@ -186,7 +186,7 @@ export default function Home() {
                      </Link>
                   </div>
                </div>
-               <div className="relative overflow-hidden h-full bg-blue-bright rounded-2xl max-lg:min-h-[240px] max-lg:rounded-xl">
+               <div className="relative overflow-hidden h-full bg-blue-bright rounded-2xl max-lg:min-h-[480px] max-sm:min-h-[420px] max-lg:rounded-xl">
                   <Image
                      src="/images/hero.jpg"
                      alt="Nestro Stack"
@@ -299,12 +299,12 @@ export default function Home() {
 
          {/* ── HOW IT WORKS ── */}
          <Reveal className="grid grid-cols-2 border-t border-b border-line max-lg:grid-cols-1">
-            <div className="relative min-h-[480px] max-lg:min-h-[220px] max-sm:min-h-[180px]">
+            <div className="relative min-h-[480px] max-lg:min-h-[480px] max-sm:min-h-[420px]">
                <Image
                   src="/images/process-img.jpeg"
                   alt="Our approach"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                />
             </div>
             <div className="bg-surface px-[4.5rem] py-20 flex flex-col justify-center max-lg:px-8 max-lg:py-12 max-sm:px-6 max-sm:py-10">
